@@ -1,0 +1,12 @@
+[submodule "vendor/stack"]
+	path = vendor/stack
+	url = https://github.com/ArcInstitute/stack.git
+[submodule "vendor/cell-eval"]
+	path = vendor/cell-eval
+	url = https://github.com/ArcInstitute/cell-eval.git
+[submodule "vendor/cell-eval-current"]
+	path = vendor/cell-eval-current
+	url = https://github.com/ArcInstitute/cell-eval.git
+[submodule "vendor/cinema-ot"]
+	path = vendor/cinema-ot
+	url = https://github.com/vandijklab/CINEMA-OT.git

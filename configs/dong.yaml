@@ -1,0 +1,97 @@
+study: dong_transport_gate_v2
+tables:
+  end_to_end:
+    stack_mmd: native_nb_mean
+    stack_icl: native_nb_mean
+    pca_mmd: pca_inverse
+    claim: explicit_transport_vs_prompting_only
+  representation_controlled:
+    stack_mmd: matched_ridge_to_common_expression_pcs
+    pca_mmd: matched_ridge_to_common_expression_pcs
+    expression_pcs: 50
+    ridge_grid: [0.0001, 0.001, 0.01, 0.1, 1, 10, 100]
+    fit_cells: source_train_only_identical_order
+    claim: stack_geometry_vs_pca_geometry
+output_scale:
+  internal_gene_methods: normalize_total_10000_then_log1p
+  inverse: expm1_clip_then_rescale_to_query_control_library
+  stack: deterministic_nb_expected_counts
+  correction: "clip(Q0 + (perturbed - noop), 0); rescale_to_Q0_library"
+  evaluator: normalize_total_10000_then_log1p_exactly_once
+panels:
+  gate: control_only_fixed
+  paper_comparable: q0_y1_hvg_2000_and_true_deg
+stack_contexts:
+  source_fit:
+    window_size: 512
+    p0_p1: separate_condition_homogeneous_windows_matched_by_fine_label_and_position
+    context_cells: 333
+    focal_cells: 179
+    fit_rows: [333, 512]
+    rotate_barcodes_through_focal_positions: true
+    average_repeated_focal_activations_per_barcode: true
+    vendor_query_position_start: 332
+    q0_present: false
+    y1_present: false
+  query_decode:
+    window_size: 512
+    context_cells: 333
+    query_cells: 179
+    context_query_ratio: [0.650390625, 0.349609375]
+    vendor_query_position_start: 332
+    y1_present: false
+  icl:
+    window_size: 512
+    prompt_ratio: 0.25
+    context_ratio: 0.4
+    context_ratio_min: 0.2
+    num_steps: 5
+    mode: mdm
+    mask_schedule: [0.8, 0.6, 0.4, 0.2, 0.0]
+    source_rows: [231, 256, 282, 308, 333]
+    query_rows: [281, 256, 230, 204, 179]
+    vendor_query_position_starts: [230, 256, 281, 307, 332]
+    source_permutation_seeds: [1, 2, 3, 4, 5]
+    preserve_vendor_rounding_discrepancy: true
+    deterministic_nb_mean_primary: true
+    untouched_nb_sampling_secondary: true
+  resample_membership: true
+  resample_order: true
+  sensitivity:
+    corrected_query_position_start: 333
+    common_p0_anchor_context: true
+    all_five_official_context_ratios: true
+    matched_context_compositions: true
+    within_segment_permutations: true
+transport:
+  mmd_rank: [4, 8, 16, 32]
+  alpha: [0, 0.5, 0.75, 1.0, 1.25, 1.5]
+  bandwidth_multiplier: [0.5, 1, 2]
+  movement_penalty: [0.001, 0.01, 0.1]
+  ot_regularization_multiplier: [0.01, 0.05, 0.1]
+  unbalanced_ot_sensitivity: true
+gate:
+  technical_aggregation: mean_before_biological_contrasts
+  panel: control_only_fixed
+  minimum_correlation_effect: 0.02
+  minimum_wins_out_of_18: 12
+  donor_effect_positive: each
+  required_coverage:
+    minimum_units: 12
+    every_cytokine: true
+    every_class: true
+  bootstrap: descriptive_two_way_cluster_10000
+  population_significance_claim: false
+state_conditioning:
+  dong_primary: [continuous_latent_ot_knn, baseline_immune_metabolic_programs]
+  tricycle_dong: exploratory_only
+  tricycle_sciplex3: primary
+  state_mmd_target: source_only_ot_barycentric_pseudotargets
+  marginal_mmd_role: regularizer_only
+  formula: "T(h,s)=h+b0+Bphi(s)+U diag(1+Cphi(s)) V^T(h-mu)"
+versions:
+  stack_commit: cacc2e4b09435c3e536d46237d10b50f222dd144
+  stack_model_revision: b09f085dac03d170b078a5c72f550ae93686e544
+  cell_eval_primary: 0.6.6
+  cell_eval_secondary: 0.8.1
+  state_se_native_decoder: provisional_until_roundtrip_confirmed

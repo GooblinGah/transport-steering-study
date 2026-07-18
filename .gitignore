@@ -1,0 +1,24 @@
+# Python cache and test output
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Local environments and model caches
+.venv/
+.venv-backups/
+.hf_home/
+
+# Instance-specific guide links
+/AGENTS.md
+/CLAUDE.md
+
+# Data and generated study artifacts
+/data/*
+!/data/.gitkeep
+/artifacts/*
+!/artifacts/.gitkeep
+
+# Local secrets and environment files
+.env
+*.pem
+*.key
