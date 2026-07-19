@@ -1,0 +1,185 @@
+<title>Transport Steering Study — Dong Gate Results</title>
+<style>
+  .viz-root{
+    color-scheme:light;
+    --surface-1:#fcfcfb; --plane:#f9f9f7;
+    --text-primary:#0b0b0b; --text-secondary:#52514e; --muted:#898781;
+    --grid:#e1e0d9; --baseline:#c3c2b7; --border:rgba(11,11,11,0.10);
+    --s-icl:#2a78d6; --s-mmd:#008300; --s-stackm:#e87ba4; --s-pca:#eda100;
+    --good:#0ca30c; --critical:#d03b3b;
+    font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+    background:var(--plane); color:var(--text-primary);
+    max-width:1020px; margin:0 auto; padding:28px 20px 60px; line-height:1.5;
+  }
+  @media (prefers-color-scheme:dark){:root:where(:not([data-theme="light"])) .viz-root{
+    color-scheme:dark; --surface-1:#1a1a19; --plane:#0d0d0d;
+    --text-primary:#fff; --text-secondary:#c3c2b7; --muted:#898781;
+    --grid:#2c2c2a; --baseline:#383835; --border:rgba(255,255,255,0.10);
+    --s-icl:#3987e5; --s-mmd:#008300; --s-stackm:#d55181; --s-pca:#c98500; --good:#0ca30c;}}
+  :root[data-theme="dark"] .viz-root{
+    color-scheme:dark; --surface-1:#1a1a19; --plane:#0d0d0d;
+    --text-primary:#fff; --text-secondary:#c3c2b7; --muted:#898781;
+    --grid:#2c2c2a; --baseline:#383835; --border:rgba(255,255,255,0.10);
+    --s-icl:#3987e5; --s-mmd:#008300; --s-stackm:#d55181; --s-pca:#c98500; --good:#0ca30c;}
+  .viz-root h1{font-size:1.5rem; margin:0 0 4px; letter-spacing:-.01em}
+  .viz-root h2{font-size:1.02rem; margin:30px 0 12px; letter-spacing:-.005em}
+  .sub{color:var(--text-secondary); font-size:.9rem; margin:0 0 18px}
+  .badge{display:inline-flex; gap:8px; align-items:center; font-weight:650; font-size:.82rem;
+    padding:5px 12px; border-radius:999px; background:color-mix(in srgb,var(--critical) 15%,transparent);
+    color:var(--critical); border:1px solid color-mix(in srgb,var(--critical) 40%,transparent)}
+  .card{background:var(--surface-1); border:1px solid var(--border); border-radius:12px; padding:16px 18px}
+  .qrow{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
+  @media(max-width:720px){.qrow{grid-template-columns:1fr}}
+  .q-tag{font-size:.72rem; font-weight:700; letter-spacing:.04em; color:var(--muted); text-transform:uppercase}
+  .q-ans{font-weight:680; margin:6px 0 4px; font-size:.95rem}
+  .q-ans.no{color:var(--critical)} .q-ans.na{color:var(--muted)}
+  .q-detail{font-size:.83rem; color:var(--text-secondary)}
+  .panels{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+  @media(max-width:820px){.panels{grid-template-columns:1fr}}
+  .panel-h{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px}
+  .panel-h .name{font-weight:640; font-size:.9rem}
+  .panel-h .dir{font-size:.72rem; color:var(--muted)}
+  .bar-row{display:flex; align-items:center; gap:8px; margin:7px 0}
+  .bar-lab{flex:0 0 96px; font-size:.74rem; color:var(--text-secondary); text-align:right; line-height:1.15}
+  .track{flex:1; background:color-mix(in srgb,var(--muted) 12%,transparent); border-radius:5px; height:20px; position:relative; overflow:hidden}
+  .fill{height:100%; border-radius:5px; min-width:2px}
+  .bar-val{flex:0 0 46px; font-size:.76rem; font-weight:640; font-variant-numeric:tabular-nums; text-align:left}
+  .legend{display:flex; flex-wrap:wrap; gap:14px; margin:8px 2px 0; font-size:.78rem; color:var(--text-secondary)}
+  .swatch{display:inline-block; width:11px; height:11px; border-radius:3px; margin-right:5px; vertical-align:-1px; border:1px solid var(--border)}
+  .contrast-row{display:grid; grid-template-columns:170px 1fr 70px; gap:10px; align-items:center; margin:9px 0}
+  @media(max-width:600px){.contrast-row{grid-template-columns:120px 1fr 60px}}
+  .c-lab{font-size:.8rem; color:var(--text-secondary)}
+  .c-lab b{color:var(--text-primary); font-weight:640}
+  .diverge{position:relative; height:22px; background:color-mix(in srgb,var(--muted) 10%,transparent); border-radius:5px}
+  .zero{position:absolute; top:-3px; bottom:-3px; width:2px; background:var(--baseline)}
+  .thresh{position:absolute; top:-3px; bottom:-3px; width:0; border-left:2px dashed var(--good)}
+  .dbar{position:absolute; top:3px; height:16px; border-radius:4px}
+  .c-stat{font-size:.74rem; font-weight:700; text-align:right; font-variant-numeric:tabular-nums}
+  .fail{color:var(--critical)} .pass{color:var(--good)}
+  .foot{font-size:.82rem; color:var(--text-secondary); margin-top:8px}
+  .foot li{margin:5px 0}
+  .tip{position:fixed; pointer-events:none; opacity:0; transition:opacity .1s; background:var(--text-primary);
+    color:var(--surface-1); font-size:.74rem; padding:5px 8px; border-radius:6px; z-index:9; max-width:230px}
+  table.grid{border-collapse:collapse; width:100%; font-size:.8rem; margin-top:6px}
+  table.grid th,table.grid td{border-bottom:1px solid var(--grid); padding:6px 8px; text-align:right; font-variant-numeric:tabular-nums}
+  table.grid th:first-child,table.grid td:first-child{text-align:left}
+</style>
+
+<div class="viz-root">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px">
+    <div>
+      <h1>Transport steering vs. Stack in-context learning</h1>
+      <p class="sub">Dong cytokine data · 2 donors · 6 cytokines · 3 held-out classes · role size 40 · 700 manifests · cell-eval v0.6.6</p>
+    </div>
+    <span class="badge">● GATE FAILS — expansion not authorized</span>
+  </div>
+
+  <h2>The three questions</h2>
+  <div class="qrow">
+    <div class="card">
+      <div class="q-tag">Q1 · Transport vs ICL</div>
+      <div class="q-ans no">No — ICL wins</div>
+      <div class="q-detail">Native in-context learning beats MMD steering on every metric (Δ-Pearson −0.027, 6/18 units). Transport is competitive, not better.</div>
+    </div>
+    <div class="card">
+      <div class="q-tag">Q2 · Stack vs PCA</div>
+      <div class="q-ans no">No correlation edge</div>
+      <div class="q-detail">Matched decoders: Stack ties/loses PCA on Δ-Pearson (−0.008) and DE-LFC. Stack only wins on distributional energy distance.</div>
+    </div>
+    <div class="card">
+      <div class="q-tag">Q3 · State conditioning</div>
+      <div class="q-ans na">Not evaluated</div>
+      <div class="q-detail">Runs only if the Dong gate passes (contract §13). It did not, so state-conditioned transport was not scored.</div>
+    </div>
+  </div>
+
+  <h2>Per-method performance <span style="font-weight:400;font-size:.82rem;color:var(--muted)">(mean over units)</span></h2>
+  <div class="panels" id="panels"></div>
+  <div class="legend">
+    <span><span class="swatch" style="background:var(--s-icl)"></span>Stack ICL</span>
+    <span><span class="swatch" style="background:var(--s-mmd)"></span>Stack-MMD (transport)</span>
+    <span><span class="swatch" style="background:var(--s-stackm)"></span>Stack-MMD matched</span>
+    <span><span class="swatch" style="background:var(--s-pca)"></span>PCA-MMD matched</span>
+  </div>
+
+  <h2>Gate contrasts <span style="font-weight:400;font-size:.82rem;color:var(--muted)">(hypothesis − comparator; needs ≥ +0.02, dashed line)</span></h2>
+  <div class="card" id="contrasts"></div>
+
+  <h2>Training-free steering vs trained inference <span style="font-weight:400;font-size:.82rem;color:var(--muted)">the more interesting read — two foundation models</span></h2>
+  <div class="card">
+    <p style="margin:0 0 14px;font-size:.9rem;color:var(--text-secondary)">A test-time affine map (our MMD) on <em>frozen</em> cell embeddings — no post-training — nearly matches each model's own trained perturbation predictor. Δ-Pearson, higher = better; bars scaled to the best method (Stack ICL 0.30).</p>
+    <div class="panel-h" style="margin-top:4px"><span class="name">Stack</span><span class="dir">steering recovers 88% of trained ICL</span></div>
+    <div class="bar-row"><div class="bar-lab">gene-space floor</div><div class="track"><div class="fill" style="width:60.6%;background:var(--s-pca)"></div></div><div class="bar-val">0.183</div></div>
+    <div class="bar-row"><div class="bar-lab">MMD steering</div><div class="track"><div class="fill" style="width:88.1%;background:var(--s-mmd)"></div></div><div class="bar-val">0.266</div></div>
+    <div class="bar-row"><div class="bar-lab">trained ICL</div><div class="track"><div class="fill" style="width:100%;background:var(--s-icl)"></div></div><div class="bar-val">0.302</div></div>
+    <div class="panel-h" style="margin-top:14px"><span class="name">STATE</span><span class="dir">steering recovers 94% of trained transition</span></div>
+    <div class="bar-row"><div class="bar-lab">MMD steering</div><div class="track"><div class="fill" style="width:59.9%;background:var(--s-mmd)"></div></div><div class="bar-val">0.181</div></div>
+    <div class="bar-row"><div class="bar-lab">trained transition</div><div class="track"><div class="fill" style="width:63.9%;background:var(--s-icl)"></div></div><div class="bar-val">0.193</div></div>
+    <p style="margin:14px 0 0;font-size:.84rem;color:var(--text-secondary)"><span style="color:var(--text-primary);font-weight:640)">Same operator, same math.</span> On both Stack and Arc's STATE, a source-only affine transport of frozen latents at test time closes most of the gap to the model's own alignment-trained inference — steering and trained prediction end up within noise of each other.</p>
+  </div>
+
+  <h2>Why it fails — and the caveats</h2>
+  <div class="card foot">
+    <ul style="margin:0;padding-left:18px">
+      <li><b>Transport didn't beat ICL.</b> Stack's native in-context learning is the strongest method on Δ-Pearson (0.30) and DE-LFC (0.70); MMD steering trails slightly and has worse energy distance.</li>
+      <li><b>No Stack representation advantage on correlation.</b> Under a matched ridge decoder, Stack and PCA tie on Δ-Pearson; Stack wins only the distributional energy-distance check (−2.55).</li>
+      <li><b>Two donors, descriptive only</b> — no population-level significance; per-unit std ≈ 0.18, so gaps of −0.01 to −0.03 sit within noise.</li>
+      <li><b>MMD is un-tuned</b> (fixed rank 8 / α 1) rather than the contract §9 donor cross-fit — the most likely lever to move the Q1 verdict, and the recommended next step.</li>
+      <li><b>DE-LFC underpowered</b> — the control-only panel leaves only 10/18 units with ≥10 significant DE genes (median deg_count = 3).</li>
+    </ul>
+  </div>
+</div>
+
+<div class="tip" id="tip"></div>
+<script>
+const methods={
+  icl:{lab:"Stack ICL",c:"var(--s-icl)"}, mmd:{lab:"Stack-MMD",c:"var(--s-mmd)"},
+  stackm:{lab:"Stack matched",c:"var(--s-stackm)"}, pca:{lab:"PCA matched",c:"var(--s-pca)"}};
+const metrics=[
+  {name:"Δ-Pearson",dir:"higher = better",better:"hi",vals:{icl:.301,mmd:.275,pca:.185,stackm:.174}},
+  {name:"DE-LFC ρ",dir:"higher · 10/18 units",better:"hi",vals:{icl:.697,mmd:.637,pca:.529,stackm:.442}},
+  {name:"Energy dist.",dir:"lower = better",better:"lo",vals:{icl:7.50,mmd:7.88,stackm:9.74,pca:12.12}}];
+const tip=document.getElementById("tip");
+function hover(el,html){el.addEventListener("mousemove",e=>{tip.innerHTML=html;tip.style.opacity=1;
+  tip.style.left=Math.min(e.clientX+12,innerWidth-240)+"px";tip.style.top=(e.clientY+14)+"px";});
+  el.addEventListener("mouseleave",()=>tip.style.opacity=0);}
+const P=document.getElementById("panels");
+metrics.forEach(m=>{
+  const max=Math.max(...Object.values(m.vals));
+  const order=Object.keys(m.vals).sort((a,b)=>m.better=="hi"?m.vals[b]-m.vals[a]:m.vals[a]-m.vals[b]);
+  const rows=order.map(k=>{
+    const w=Math.max(2,100*m.vals[k]/max);
+    return `<div class="bar-row"><div class="bar-lab">${methods[k].lab}</div>
+      <div class="track" data-k="${k}"><div class="fill" style="width:${w}%;background:${methods[k].c}"></div></div>
+      <div class="bar-val">${m.vals[k].toFixed(m.better=="lo"?2:3)}</div></div>`}).join("");
+  const div=document.createElement("div");div.className="card";
+  div.innerHTML=`<div class="panel-h"><span class="name">${m.name}</span><span class="dir">${m.dir}</span></div>${rows}`;
+  P.appendChild(div);
+  div.querySelectorAll(".track").forEach(t=>hover(t,`<b>${methods[t.dataset.k].lab}</b><br>${m.name}: ${m.vals[t.dataset.k]}`));
+});
+const contrasts=[
+  {q:"Q1",lab:"Stack-MMD − ICL",met:"Δ-Pearson",d:-0.027,extra:"6/18 units win"},
+  {q:"Q1",lab:"Stack-MMD − ICL",met:"DE-LFC",d:-0.043,extra:"3 wins · 8 units"},
+  {q:"Q2",lab:"Stack − PCA (matched)",met:"Δ-Pearson",d:-0.008,extra:"7/18 units win"},
+  {q:"Q2",lab:"Stack − PCA (matched)",met:"DE-LFC",d:-0.071,extra:"5 wins · 8 units"}];
+const lo=-0.09,hi=0.03,span=hi-lo,X=v=>100*(v-lo)/span;
+const C=document.getElementById("contrasts");
+C.innerHTML=contrasts.map(c=>{
+  const neg=c.d<0, left=neg?X(c.d):X(0), width=Math.abs(X(c.d)-X(0));
+  const col=c.d>=0.02?"var(--good)":"var(--critical)";
+  return `<div class="contrast-row">
+    <div class="c-lab"><b>${c.q}</b> ${c.met}<br><span style="color:var(--muted);font-size:.72rem">${c.lab} · ${c.extra}</span></div>
+    <div class="diverge" data-tip="${c.lab}: ${c.d} on ${c.met}">
+      <div class="zero" style="left:${X(0)}%"></div>
+      <div class="thresh" style="left:${X(0.02)}%"></div>
+      <div class="dbar" style="left:${left}%;width:${width}%;background:${col}"></div></div>
+    <div class="c-stat fail">${c.d.toFixed(3)} ✗</div></div>`}).join("")
+  + `<div style="border-top:1px solid var(--grid);margin:12px 0 4px"></div>`
+  + [{lab:"Energy · end-to-end (MMD vs ICL)",v:+0.39,pass:false},
+     {lab:"Energy · representation (Stack vs PCA)",v:-2.55,pass:true}].map(e=>
+     `<div class="contrast-row"><div class="c-lab">${e.lab}<br><span style="color:var(--muted);font-size:.72rem">Stack − comparator · lower is better</span></div>
+      <div class="diverge"><div class="zero" style="left:50%"></div>
+        <div class="dbar" style="${e.v<0?`right:50%;width:${Math.min(48,Math.abs(e.v)*10)}`:`left:50%;width:${Math.min(48,e.v*40)}`}%;background:${e.pass?'var(--good)':'var(--critical)'}"></div></div>
+      <div class="c-stat ${e.pass?'pass':'fail'}">${e.v>0?'+':''}${e.v} ${e.pass?'✓':'✗'}</div></div>`).join("");
+C.querySelectorAll(".diverge[data-tip]").forEach(d=>hover(d,d.dataset.tip));
+</script>
