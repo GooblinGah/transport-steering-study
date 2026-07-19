@@ -75,6 +75,20 @@ class TaskManifest:
         path.write_text(content)
 
 
+def validate_manifest_payload(body: dict[str, Any], minimum: int = 32) -> TaskManifest:
+    """Rebuild and authenticate a manifest read from mutable JSON."""
+    payload = {key: body[key] for key in TaskManifest.__dataclass_fields__}
+    for key in ("p0", "p1", "q0", "y1", "genes"):
+        payload[key] = tuple(payload[key])
+    manifest = TaskManifest(**payload)
+    manifest.validate(minimum=minimum)
+    if body.get("task_id") != manifest.task_id:
+        raise ValueError("manifest task_id does not match its payload")
+    if body.get("manifest_hash") != manifest.manifest_hash:
+        raise ValueError("manifest hash does not match its payload")
+    return manifest
+
+
 @dataclass(frozen=True)
 class MethodConfig:
     name: str

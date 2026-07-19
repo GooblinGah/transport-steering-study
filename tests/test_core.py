@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import pytest
-from transport_study.contracts import TaskManifest
+from transport_study.contracts import TaskManifest, validate_manifest_payload
 from transport_study.manifests import assert_raw_counts
 from transport_study.operators import LowRankMMD, mean_shift
 import anndata as ad
@@ -14,6 +14,12 @@ def test_manifest_hash_and_sealing():
     m=manifest(); m.validate(); assert len(m.manifest_hash)==64
     bad=TaskManifest(**(m.payload()|{"y1":m.q0}))
     with pytest.raises(ValueError,match="overlap"): bad.validate()
+
+def test_loaded_manifest_is_authenticated():
+    m=manifest(); body=m.payload()|{"task_id":m.task_id,"manifest_hash":m.manifest_hash}
+    assert validate_manifest_payload(body)==m
+    body["q0"]=["tampered"]*128
+    with pytest.raises(ValueError): validate_manifest_payload(body)
 
 def test_raw_counts_guard():
     assert_raw_counts(ad.AnnData(np.array([[0,1],[2,3]],dtype=float)))
