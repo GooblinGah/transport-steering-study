@@ -1,0 +1,505 @@
+{
+  "coverage": {
+    "eligible_donor_tasks": 35,
+    "eligible_two_donor_units": 17,
+    "every_class": true,
+    "every_cytokine": true,
+    "gate_coverage_possible": true,
+    "minimum_units": 12,
+    "total_donor_tasks": 36,
+    "total_units": 18
+  },
+  "donor_tasks": 36,
+  "excluded": [
+    "NK",
+    "plasma"
+  ],
+  "fine_mapping": {
+    "B": [
+      "B"
+    ],
+    "Myeloid": [
+      "Monocyte",
+      "Dendritic"
+    ],
+    "T": [
+      "CD4",
+      "CD8"
+    ]
+  },
+  "global_role_size": 40,
+  "manifest_count": 1440,
+  "resamples": 20,
+  "sampling_modes": [
+    "fine_matched",
+    "natural_proportion"
+  ],
+  "seed": 1729,
+  "tier_coverage": {
+    "128": {
+      "n_units": 0,
+      "paired_units": [],
+      "passes": false,
+      "per_class": {
+        "B": 0,
+        "Myeloid": 0,
+        "T": 0
+      },
+      "per_cytokine": {
+        "IFN-III/IL-29": 0,
+        "IFN-\u03b12": 0,
+        "IFN-\u03b2": 0,
+        "IFN-\u03b3": 0,
+        "IL-6": 0,
+        "TNF-\u03b1": 0
+      }
+    },
+    "256": {
+      "n_units": 0,
+      "paired_units": [],
+      "passes": false,
+      "per_class": {
+        "B": 0,
+        "Myeloid": 0,
+        "T": 0
+      },
+      "per_cytokine": {
+        "IFN-III/IL-29": 0,
+        "IFN-\u03b12": 0,
+        "IFN-\u03b2": 0,
+        "IFN-\u03b3": 0,
+        "IL-6": 0,
+        "TNF-\u03b1": 0
+      }
+    },
+    "32": {
+      "n_units": 18,
+      "paired_units": [
+        [
+          "IFN-\u03b12",
+          "B"
+        ],
+        [
+          "IFN-\u03b12",
+          "T"
+        ],
+        [
+          "IFN-\u03b12",
+          "Myeloid"
+        ],
+        [
+          "IFN-\u03b2",
+          "B"
+        ],
+        [
+          "IFN-\u03b2",
+          "T"
+        ],
+        [
+          "IFN-\u03b2",
+          "Myeloid"
+        ],
+        [
+          "IFN-\u03b3",
+          "B"
+        ],
+        [
+          "IFN-\u03b3",
+          "T"
+        ],
+        [
+          "IFN-\u03b3",
+          "Myeloid"
+        ],
+        [
+          "IFN-III/IL-29",
+          "B"
+        ],
+        [
+          "IFN-III/IL-29",
+          "T"
+        ],
+        [
+          "IFN-III/IL-29",
+          "Myeloid"
+        ],
+        [
+          "IL-6",
+          "B"
+        ],
+        [
+          "IL-6",
+          "T"
+        ],
+        [
+          "IL-6",
+          "Myeloid"
+        ],
+        [
+          "TNF-\u03b1",
+          "B"
+        ],
+        [
+          "TNF-\u03b1",
+          "T"
+        ],
+        [
+          "TNF-\u03b1",
+          "Myeloid"
+        ]
+      ],
+      "passes": true,
+      "per_class": {
+        "B": 6,
+        "Myeloid": 6,
+        "T": 6
+      },
+      "per_cytokine": {
+        "IFN-III/IL-29": 3,
+        "IFN-\u03b12": 3,
+        "IFN-\u03b2": 3,
+        "IFN-\u03b3": 3,
+        "IL-6": 3,
+        "TNF-\u03b1": 3
+      }
+    },
+    "36": {
+      "n_units": 18,
+      "paired_units": [
+        [
+          "IFN-\u03b12",
+          "B"
+        ],
+        [
+          "IFN-\u03b12",
+          "T"
+        ],
+        [
+          "IFN-\u03b12",
+          "Myeloid"
+        ],
+        [
+          "IFN-\u03b2",
+          "B"
+        ],
+        [
+          "IFN-\u03b2",
+          "T"
+        ],
+        [
+          "IFN-\u03b2",
+          "Myeloid"
+        ],
+        [
+          "IFN-\u03b3",
+          "B"
+        ],
+        [
+          "IFN-\u03b3",
+          "T"
+        ],
+        [
+          "IFN-\u03b3",
+          "Myeloid"
+        ],
+        [
+          "IFN-III/IL-29",
+          "B"
+        ],
+        [
+          "IFN-III/IL-29",
+          "T"
+        ],
+        [
+          "IFN-III/IL-29",
+          "Myeloid"
+        ],
+        [
+          "IL-6",
+          "B"
+        ],
+        [
+          "IL-6",
+          "T"
+        ],
+        [
+          "IL-6",
+          "Myeloid"
+        ],
+        [
+          "TNF-\u03b1",
+          "B"
+        ],
+        [
+          "TNF-\u03b1",
+          "T"
+        ],
+        [
+          "TNF-\u03b1",
+          "Myeloid"
+        ]
+      ],
+      "passes": true,
+      "per_class": {
+        "B": 6,
+        "Myeloid": 6,
+        "T": 6
+      },
+      "per_cytokine": {
+        "IFN-III/IL-29": 3,
+        "IFN-\u03b12": 3,
+        "IFN-\u03b2": 3,
+        "IFN-\u03b3": 3,
+        "IL-6": 3,
+        "TNF-\u03b1": 3
+      }
+    },
+    "40": {
+      "n_units": 17,
+      "paired_units": [
+        [
+          "IFN-\u03b12",
+          "B"
+        ],
+        [
+          "IFN-\u03b12",
+          "T"
+        ],
+        [
+          "IFN-\u03b12",
+          "Myeloid"
+        ],
+        [
+          "IFN-\u03b2",
+          "B"
+        ],
+        [
+          "IFN-\u03b2",
+          "T"
+        ],
+        [
+          "IFN-\u03b2",
+          "Myeloid"
+        ],
+        [
+          "IFN-\u03b3",
+          "B"
+        ],
+        [
+          "IFN-\u03b3",
+          "T"
+        ],
+        [
+          "IFN-\u03b3",
+          "Myeloid"
+        ],
+        [
+          "IFN-III/IL-29",
+          "B"
+        ],
+        [
+          "IFN-III/IL-29",
+          "T"
+        ],
+        [
+          "IFN-III/IL-29",
+          "Myeloid"
+        ],
+        [
+          "IL-6",
+          "T"
+        ],
+        [
+          "IL-6",
+          "Myeloid"
+        ],
+        [
+          "TNF-\u03b1",
+          "B"
+        ],
+        [
+          "TNF-\u03b1",
+          "T"
+        ],
+        [
+          "TNF-\u03b1",
+          "Myeloid"
+        ]
+      ],
+      "passes": true,
+      "per_class": {
+        "B": 5,
+        "Myeloid": 6,
+        "T": 6
+      },
+      "per_cytokine": {
+        "IFN-III/IL-29": 3,
+        "IFN-\u03b12": 3,
+        "IFN-\u03b2": 3,
+        "IFN-\u03b3": 3,
+        "IL-6": 2,
+        "TNF-\u03b1": 3
+      }
+    },
+    "48": {
+      "n_units": 14,
+      "paired_units": [
+        [
+          "IFN-\u03b12",
+          "B"
+        ],
+        [
+          "IFN-\u03b12",
+          "T"
+        ],
+        [
+          "IFN-\u03b12",
+          "Myeloid"
+        ],
+        [
+          "IFN-\u03b2",
+          "T"
+        ],
+        [
+          "IFN-\u03b2",
+          "Myeloid"
+        ],
+        [
+          "IFN-\u03b3",
+          "T"
+        ],
+        [
+          "IFN-\u03b3",
+          "Myeloid"
+        ],
+        [
+          "IFN-III/IL-29",
+          "B"
+        ],
+        [
+          "IFN-III/IL-29",
+          "T"
+        ],
+        [
+          "IFN-III/IL-29",
+          "Myeloid"
+        ],
+        [
+          "IL-6",
+          "T"
+        ],
+        [
+          "IL-6",
+          "Myeloid"
+        ],
+        [
+          "TNF-\u03b1",
+          "T"
+        ],
+        [
+          "TNF-\u03b1",
+          "Myeloid"
+        ]
+      ],
+      "passes": false,
+      "per_class": {
+        "B": 2,
+        "Myeloid": 6,
+        "T": 6
+      },
+      "per_cytokine": {
+        "IFN-III/IL-29": 3,
+        "IFN-\u03b12": 3,
+        "IFN-\u03b2": 2,
+        "IFN-\u03b3": 2,
+        "IL-6": 2,
+        "TNF-\u03b1": 2
+      }
+    },
+    "512": {
+      "n_units": 0,
+      "paired_units": [],
+      "passes": false,
+      "per_class": {
+        "B": 0,
+        "Myeloid": 0,
+        "T": 0
+      },
+      "per_cytokine": {
+        "IFN-III/IL-29": 0,
+        "IFN-\u03b12": 0,
+        "IFN-\u03b2": 0,
+        "IFN-\u03b3": 0,
+        "IL-6": 0,
+        "TNF-\u03b1": 0
+      }
+    },
+    "64": {
+      "n_units": 12,
+      "paired_units": [
+        [
+          "IFN-\u03b12",
+          "T"
+        ],
+        [
+          "IFN-\u03b12",
+          "Myeloid"
+        ],
+        [
+          "IFN-\u03b2",
+          "T"
+        ],
+        [
+          "IFN-\u03b2",
+          "Myeloid"
+        ],
+        [
+          "IFN-\u03b3",
+          "T"
+        ],
+        [
+          "IFN-\u03b3",
+          "Myeloid"
+        ],
+        [
+          "IFN-III/IL-29",
+          "T"
+        ],
+        [
+          "IFN-III/IL-29",
+          "Myeloid"
+        ],
+        [
+          "IL-6",
+          "T"
+        ],
+        [
+          "IL-6",
+          "Myeloid"
+        ],
+        [
+          "TNF-\u03b1",
+          "T"
+        ],
+        [
+          "TNF-\u03b1",
+          "Myeloid"
+        ]
+      ],
+      "passes": false,
+      "per_class": {
+        "B": 0,
+        "Myeloid": 6,
+        "T": 6
+      },
+      "per_cytokine": {
+        "IFN-III/IL-29": 2,
+        "IFN-\u03b12": 2,
+        "IFN-\u03b2": 2,
+        "IFN-\u03b3": 2,
+        "IL-6": 2,
+        "TNF-\u03b1": 2
+      }
+    }
+  }
+}

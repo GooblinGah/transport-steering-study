@@ -44,7 +44,7 @@ class TaskManifest:
     def manifest_hash(self) -> str:
         return canonical_hash(self.payload())
 
-    def validate(self, minimum: int = 128) -> None:
+    def validate(self, minimum: int = 32) -> None:  # floor = smallest amended role tier (see docs/AMENDMENT_ROLE_SIZE.md)
         roles = {"p0": self.p0, "p1": self.p1, "q0": self.q0, "y1": self.y1}
         for name, ids in roles.items():
             if self.eligible and len(ids) < minimum:
@@ -169,3 +169,6 @@ class MetricRecord:
     deg_set_hash: str = ""
     decoder_train_ids_hash: str = ""
     expression_basis_hash: str = ""
+    window_seed: int = 0
+    transport_config_hash: str = ""
+    sampling_mode: str = "fine_matched"

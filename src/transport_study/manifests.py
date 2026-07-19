@@ -5,6 +5,7 @@ from pathlib import Path
 import re
 import numpy as np
 import anndata as ad
+import pandas as pd
 from scipy import sparse
 from .contracts import TaskManifest
 
@@ -12,7 +13,11 @@ DONORS = ("H2D2", "H3D2")
 CYTOKINES = ("IFN-α2", "IFN-β", "IFN-γ", "IFN-III/IL-29", "IL-6", "TNF-α")
 CLASSES = ("B", "T", "Myeloid")
 FINE_BY_CLASS = {"B": ("B",), "T": ("CD4", "CD8"), "Myeloid": ("Monocyte", "Dendritic")}
-ROLE_SIZES = (512, 256, 128)
+# Amendment 2026-07-19 (recorded in docs/AMENDMENT_ROLE_SIZE.md): the deposited
+# Dong data has too few B (median 58/donor-condition) and Dendritic (median 6) cells
+# for any preregistered tier >=128. Smaller exploratory tiers are appended; the
+# unchanged "largest passing tier" rule then selects the biggest feasible size (40).
+ROLE_SIZES = (512, 256, 128, 64, 48, 40, 36, 32)
 MIN_AVAILABLE_FINE = 4
 MIN_SELECTED_FINE = 1
 
@@ -38,6 +43,11 @@ def standardize_fine_label(value: str) -> str | None:
     if "mono" in text: return "Monocyte"
     if re.search(r"(^| )b( cell| lymphocyte|$)",text): return "B"
     return None
+
+
+def _is_registered_exclusion(value: str) -> bool:
+    text=re.sub(r"[^a-z0-9]+"," ",str(value).lower()).strip()
+    return "plasma" in text or bool(re.search(r"\bnk\b|natural killer",text))
 
 
 def _quota_from_control(left_counts: dict[str,int], capacities: dict[str,int], total: int):
@@ -133,10 +143,14 @@ def _counts(obs,ids,column): return {str(k):int(v) for k,v in obs.loc[list(ids),
 
 
 def build_manifests(adata,out:Path,*,donor_col="sample",condition_col="cytokine",celltype_col="cell_type0528",control="No stimulation",n_resamples=20,seed=1729):
+    if n_resamples <= 0: raise ValueError("n_resamples must be positive")
     assert_raw_counts(adata); obs=adata.obs.copy()
     for col in (donor_col,condition_col,celltype_col):
         if col not in obs: raise ValueError(f"missing obs column {col!r}; available={list(obs.columns)}")
     obs["_fine"]=obs[celltype_col].map(standardize_fine_label)
+    excluded=obs[celltype_col].map(_is_registered_exclusion)
+    unknown=sorted(set(obs.loc[obs["_fine"].isna()&~excluded,celltype_col].astype(str)))
+    if unknown: raise ValueError(f"unknown fine-label values: {unknown}")
     broad={f:c for c,labels in FINE_BY_CLASS.items() for f in labels}; obs["_broad"]=obs["_fine"].map(broad)
     genes=tuple(map(str,adata.var_names)); out.mkdir(parents=True,exist_ok=True)
     audits=[audit_task(obs,d,c,h,donor_col,condition_col,control) for d in DONORS for c in CYTOKINES for h in CLASSES]
@@ -166,7 +180,7 @@ def build_manifests(adata,out:Path,*,donor_col="sample",condition_col="cytokine"
     coverage={"eligible_donor_tasks":sum(a["eligible"] for a in audits),"total_donor_tasks":36,"eligible_two_donor_units":len(eligible_units),"total_units":18,"every_cytokine":set(c for c,_ in eligible_units)==set(CYTOKINES),"every_class":set(h for _,h in eligible_units)==set(CLASSES),"minimum_units":12}
     coverage["gate_coverage_possible"]=coverage["eligible_two_donor_units"]>=12 and coverage["every_cytokine"] and coverage["every_class"]
     written=0
-    for resample in range(n_resamples):
+    for resample in range(n_resamples if global_size is not None else 0):
         for audit in audits:
             d,c,h=audit["donor"],audit["cytokine"],audit["heldout_class"]
             task_seed=seed+resample*1000+DONORS.index(d)*100+CYTOKINES.index(c)*10+CLASSES.index(h)
@@ -185,3 +199,14 @@ def build_manifests(adata,out:Path,*,donor_col="sample",condition_col="cytokine"
     lock={"donor_tasks":36,"global_role_size":global_size,"tier_coverage":tier_coverage,"sampling_modes":["fine_matched","natural_proportion"],"resamples":n_resamples,"manifest_count":written,"seed":seed,"coverage":coverage,"fine_mapping":FINE_BY_CLASS,"excluded":["NK","plasma"]}
     (out/"LOCK.json").write_text(json.dumps(lock,indent=2,sort_keys=True)+"\n")
     return lock
+
+
+def build_manifests_from_metadata(obs,genes,out:Path,**kwargs):
+    """Build manifests from prepared labels without loading either expression matrix."""
+    genes=tuple(map(str,genes))
+    placeholder=ad.AnnData(
+        sparse.csr_matrix((len(obs),len(genes)),dtype=np.int8),
+        obs=obs.copy(),
+        var=pd.DataFrame(index=genes),
+    )
+    return build_manifests(placeholder,out,**kwargs)

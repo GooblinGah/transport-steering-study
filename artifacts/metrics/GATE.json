@@ -1,0 +1,179 @@
+{
+  "passed": false,
+  "expansion_authorized": false,
+  "gate_panel": "control_only_fixed",
+  "technical_resamples_averaged_first": true,
+  "contrasts": [
+    {
+      "table": "end_to_end",
+      "method": "stack_mmd_native",
+      "comparator": "stack_icl_native",
+      "metric": "delta_pearson",
+      "panel": "control_only_fixed",
+      "difference": -0.02657899052719585,
+      "donor_effects": {
+        "H2D2": -0.0350011023124406,
+        "H3D2": -0.018156878741951113
+      },
+      "wins": 6,
+      "coverage": {
+        "eligible_units": 17,
+        "denominator_units": 18,
+        "every_cytokine": true,
+        "every_class": true,
+        "both_donors": true
+      },
+      "criteria": {
+        "technical_pairing_complete": true,
+        "each_donor_positive": false,
+        "donor_averaged_difference_at_least_0.02": false,
+        "wins_at_least_12_of_18": false,
+        "coverage_at_least_12": true,
+        "coverage_every_cytokine": true,
+        "coverage_every_class": true
+      },
+      "passed": false,
+      "uncertainty": {
+        "lower_95": -0.062115132309637465,
+        "upper_95": 0.006690269421475629,
+        "bootstrap_kind": "descriptive_two_way_cluster"
+      },
+      "population_p_value": null
+    },
+    {
+      "table": "end_to_end",
+      "method": "stack_mmd_native",
+      "comparator": "stack_icl_native",
+      "metric": "de_lfc_spearman",
+      "panel": "control_only_fixed",
+      "difference": -0.04328743548960322,
+      "donor_effects": {
+        "H2D2": -0.053823912888765334,
+        "H3D2": -0.032750958090441096
+      },
+      "wins": 3,
+      "coverage": {
+        "eligible_units": 8,
+        "denominator_units": 18,
+        "every_cytokine": false,
+        "every_class": true,
+        "both_donors": true
+      },
+      "criteria": {
+        "technical_pairing_complete": false,
+        "each_donor_positive": false,
+        "donor_averaged_difference_at_least_0.02": false,
+        "wins_at_least_12_of_18": false,
+        "coverage_at_least_12": false,
+        "coverage_every_cytokine": false,
+        "coverage_every_class": true
+      },
+      "passed": false,
+      "uncertainty": {
+        "lower_95": -0.1517095959038232,
+        "upper_95": 0.0020393294592698417,
+        "bootstrap_kind": "descriptive_two_way_cluster"
+      },
+      "population_p_value": null
+    },
+    {
+      "table": "representation_controlled",
+      "method": "stack_mmd_matched_ridge",
+      "comparator": "pca_mmd_matched_ridge",
+      "metric": "delta_pearson",
+      "panel": "control_only_fixed",
+      "difference": -0.007748320604921046,
+      "donor_effects": {
+        "H2D2": -0.007368962590664846,
+        "H3D2": -0.008127678619177247
+      },
+      "wins": 7,
+      "coverage": {
+        "eligible_units": 17,
+        "denominator_units": 18,
+        "every_cytokine": true,
+        "every_class": true,
+        "both_donors": true
+      },
+      "criteria": {
+        "technical_pairing_complete": true,
+        "each_donor_positive": false,
+        "donor_averaged_difference_at_least_0.02": false,
+        "wins_at_least_12_of_18": false,
+        "coverage_at_least_12": true,
+        "coverage_every_cytokine": true,
+        "coverage_every_class": true
+      },
+      "passed": false,
+      "uncertainty": {
+        "lower_95": -0.06141484442406283,
+        "upper_95": 0.05171016378720287,
+        "bootstrap_kind": "descriptive_two_way_cluster"
+      },
+      "population_p_value": null
+    },
+    {
+      "table": "representation_controlled",
+      "method": "stack_mmd_matched_ridge",
+      "comparator": "pca_mmd_matched_ridge",
+      "metric": "de_lfc_spearman",
+      "panel": "control_only_fixed",
+      "difference": -0.07123017413541674,
+      "donor_effects": {
+        "H2D2": -0.12741276517044753,
+        "H3D2": -0.015047583100385963
+      },
+      "wins": 5,
+      "coverage": {
+        "eligible_units": 8,
+        "denominator_units": 18,
+        "every_cytokine": false,
+        "every_class": true,
+        "both_donors": true
+      },
+      "criteria": {
+        "technical_pairing_complete": false,
+        "each_donor_positive": false,
+        "donor_averaged_difference_at_least_0.02": false,
+        "wins_at_least_12_of_18": false,
+        "coverage_at_least_12": false,
+        "coverage_every_cytokine": false,
+        "coverage_every_class": true
+      },
+      "passed": false,
+      "uncertainty": {
+        "lower_95": -0.33857891815714536,
+        "upper_95": 0.02632132321596146,
+        "bootstrap_kind": "descriptive_two_way_cluster"
+      },
+      "population_p_value": null
+    }
+  ],
+  "energy_checks": [
+    {
+      "table": "end_to_end",
+      "method": "stack_mmd_native",
+      "comparator": "stack_icl_native",
+      "passed": false,
+      "macro": {
+        "stack_minus_comparator": 0.38800647411184364,
+        "eligible_units": 17,
+        "technical_pairing_complete": true,
+        "coverage": true
+      }
+    },
+    {
+      "table": "representation_controlled",
+      "method": "stack_mmd_matched_ridge",
+      "comparator": "pca_mmd_matched_ridge",
+      "passed": true,
+      "macro": {
+        "stack_minus_comparator": -2.553500160189809,
+        "eligible_units": 17,
+        "technical_pairing_complete": true,
+        "coverage": true
+      }
+    }
+  ],
+  "inference_scope": "two observed donors; bootstrap intervals are descriptive, not population-level significance"
+}

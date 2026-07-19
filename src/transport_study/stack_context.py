@@ -74,6 +74,7 @@ def build_source_fit_windows(p0_ids,p1_ids,p0_fine,p1_fine,*,seed,sealed_y1=()):
 
 def build_query_windows(p0_context_ids,q0_ids,*,seed,sealed_y1=()):
     rng=np.random.default_rng(seed);context=np.asarray(p0_context_ids,dtype=object).copy();query=np.asarray(q0_ids,dtype=object).copy();rng.shuffle(context)
+    rng.shuffle(query)
     windows=[]
     for index,start in enumerate(range(0,len(query),179)):
         ids=_cycle(context,index*333,333)+_cycle(query,start,179)

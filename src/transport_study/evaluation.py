@@ -10,6 +10,8 @@ EXPECTED_CYTOKINES = {"IFN-α2", "IFN-β", "IFN-γ", "IFN-III/IL-29", "IL-6", "T
 EXPECTED_CLASSES = {"B", "T", "Myeloid"}
 EXPECTED_DONORS = {"H2D2", "H3D2"}
 GATE_PANEL = "control_only_fixed"
+GATE_SAMPLING_MODE = "fine_matched"
+EXPECTED_RESAMPLES = set(range(20))
 CONTRAST_SPECS = (
     ("end_to_end", "stack_mmd_native", "stack_icl_native"),
     ("representation_controlled", "stack_mmd_matched_ridge", "pca_mmd_matched_ridge"),
@@ -40,7 +42,7 @@ def energy_distance(pred, y1, evaluator_fit):
 
 
 def _require_columns(frame: pd.DataFrame) -> None:
-    required={"donor","cytokine","heldout_class","method","metric","value","eligible","evaluator_panel","comparison_table","resample","generation_seed","window_seed","manifest_hash","panel_hash","evaluator_hash","deg_count","deg_set_hash","decoder_train_ids_hash","expression_basis_hash","transport_config_hash"}
+    required={"donor","cytokine","heldout_class","method","metric","value","eligible","evaluator_panel","comparison_table","resample","generation_seed","window_seed","manifest_hash","panel_hash","evaluator_hash","deg_count","deg_set_hash","decoder_train_ids_hash","expression_basis_hash","transport_config_hash","sampling_mode"}
     missing=required-set(frame.columns)
     if missing:
         raise ValueError(f"metric records missing columns: {sorted(missing)}")
@@ -59,11 +61,12 @@ def paired_technical_differences(records, *, table, method, comparator, metric, 
     _require_columns(records)
     part=records.loc[
         records["eligible"].astype(bool)&(records.comparison_table==table)&
-        (records.metric==metric)&(records.evaluator_panel==panel)&records.method.isin([method,comparator])
+        (records.metric==metric)&(records.evaluator_panel==panel)&
+        (records.sampling_mode==GATE_SAMPLING_MODE)&records.method.isin([method,comparator])
     ].copy()
     if metric=="de_lfc_spearman":
         part=part.loc[(part.deg_count.fillna(0)>=10)&(part.deg_set_hash.astype(str)!="")]
-    keys=["donor","cytokine","heldout_class","resample","generation_seed","window_seed","manifest_hash","panel_hash","evaluator_hash"]
+    keys=["donor","cytokine","heldout_class","resample","generation_seed","window_seed","manifest_hash","panel_hash","evaluator_hash","sampling_mode"]
     if metric=="de_lfc_spearman":keys.append("deg_set_hash")
     if table=="representation_controlled":
         if (part.decoder_train_ids_hash.astype(str)=="").any() or (part.expression_basis_hash.astype(str)=="").any() or (part.transport_config_hash.astype(str)=="").any():
@@ -76,7 +79,11 @@ def paired_technical_differences(records, *, table, method, comparator, metric, 
     if method not in pivot or comparator not in pivot:
         return pd.Series(dtype=float,name="difference"),False
     diff=(pivot[method]-pivot[comparator]).dropna()
-    biological=diff.groupby(level=["donor","cytokine","heldout_class"]).mean()
+    rows=diff.rename("difference").reset_index()
+    resample_sets=rows.groupby(["donor","cytokine","heldout_class"],observed=True)["resample"].agg(lambda x:set(map(int,x)))
+    pairing_complete=bool(pairing_complete and len(resample_sets) and all(values==EXPECTED_RESAMPLES for values in resample_sets))
+    per_resample=rows.groupby(["donor","cytokine","heldout_class","resample"],as_index=False,observed=True)["difference"].mean()
+    biological=per_resample.groupby(["donor","cytokine","heldout_class"],observed=True)["difference"].mean()
     return biological,pairing_complete
 
 

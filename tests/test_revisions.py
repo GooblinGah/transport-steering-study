@@ -11,7 +11,7 @@ from transport_study.output_scale import (
     library_sizes, log1p_to_expected_counts, normalize_log1p,
     prepare_for_evaluation, synthetic_control_correct,
 )
-from transport_study.stack_context import build_source_fit_windows, manual_no_mask_forward, official_icl_schedule
+from transport_study.stack_context import build_query_windows, build_source_fit_windows, manual_no_mask_forward, official_icl_schedule
 from transport_study.panels import fit_control_only_panel
 
 DONORS=("H2D2","H3D2")
@@ -25,14 +25,15 @@ def contrast_frame(effect=.021, table="end_to_end", method="stack_mmd_native", c
     for donor in DONORS:
         for cytokine in CYTOKINES:
             for cls in CLASSES:
-                for resample in (0,1):
+                for resample in range(20):
                     common=dict(donor=donor,cytokine=cytokine,heldout_class=cls,resample=resample,generation_seed=0,
                         window_seed=0,
                         eligible=True,evaluator_panel="control_only_fixed",comparison_table=table,
                         manifest_hash=f"{donor}-{cytokine}-{cls}-{resample}",panel_hash="panel",
                         evaluator_hash="evaluator",transport_config_hash="transport" if decoder else "",
                         deg_count=20,deg_set_hash=f"deg-{donor}-{cytokine}-{cls}",
-                        decoder_train_ids_hash="train" if decoder else "",expression_basis_hash="basis" if decoder else "")
+                        decoder_train_ids_hash="train" if decoder else "",expression_basis_hash="basis" if decoder else "",
+                        sampling_mode="fine_matched")
                     for metric in metrics:
                         base=1.0 if metric=="energy_distance" else .5
                         # Lower is better only for energy.
@@ -141,6 +142,11 @@ def test_stack_window_contract_and_official_schedule():
     schedule=official_icl_schedule()
     assert [x["source_rows"] for x in schedule]==[231,256,282,308,333]
     assert [x["query_position_start"] for x in schedule]==[230,256,281,307,332]
+
+
+def test_query_window_seed_changes_query_order():
+    context=[f"p{i}" for i in range(333)];query=[f"q{i}" for i in range(256)]
+    assert build_query_windows(context,query,seed=1)[0].cell_ids[333:] != build_query_windows(context,query,seed=2)[0].cell_ids[333:]
 
 
 def test_manual_stack_forward_intervenes_on_query_only():

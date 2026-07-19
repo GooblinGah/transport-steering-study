@@ -40,11 +40,12 @@ class LowRankMMD:
         import torch
         torch.manual_seed(self.seed)
         x0, x1 = map(lambda x: torch.as_tensor(x, dtype=torch.float32), (x0, x1))
+        dev = x0.device
         self.mu_ = x0.mean(0); self.scale_ = x0.std(0).clamp_min(1e-5)
         a, b = (x0-self.mu_)/self.scale_, (x1-self.mu_)/self.scale_
         self.z_mu_ = a.mean(0)
         d = a.shape[1]; r = min(self.rank, d)
-        U = torch.nn.Parameter(torch.zeros(d, r)); V = torch.nn.Parameter(torch.zeros(d, r)); shift = torch.nn.Parameter(b.mean(0)-a.mean(0))
+        U = torch.nn.Parameter(torch.zeros(d, r, device=dev)); V = torch.nn.Parameter(torch.zeros(d, r, device=dev)); shift = torch.nn.Parameter(b.mean(0)-a.mean(0))
         torch.nn.init.normal_(U, std=1e-3); torch.nn.init.normal_(V, std=1e-3)
         med = torch.median(torch.cdist(a, b).detach()).clamp_min(1e-4) * self.bw_mult
         opt = torch.optim.Adam([U, V, shift], lr=self.lr)
@@ -63,9 +64,9 @@ class LowRankMMD:
 
     def transform(self, x, alpha=None):
         import torch
-        x=torch.as_tensor(x,dtype=torch.float32); z=(x-self.mu_)/self.scale_; a=self.alpha if alpha is None else alpha
+        x=torch.as_tensor(x,dtype=torch.float32,device=self.mu_.device); z=(x-self.mu_)/self.scale_; a=self.alpha if alpha is None else alpha
         out=z+a*(self.shift_+(z-self.z_mu_)@self.V_@self.U_.T)
-        return (out*self.scale_+self.mu_).numpy()
+        return (out*self.scale_+self.mu_).cpu().numpy()
 
 
 def pca_mmd(p0, p1, q0, n_components=50, **kwargs):

@@ -1,0 +1,5428 @@
+{
+  "global_role_size": 40,
+  "tasks": [
+    {
+      "candidates": {
+        "128": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "256": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "32": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 15
+            },
+            "source:T": {
+              "CD4": 11,
+              "CD8": 5
+            },
+            "target": {
+              "B": 32
+            }
+          },
+          "reason": ""
+        },
+        "36": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 17
+            },
+            "source:T": {
+              "CD4": 12,
+              "CD8": 6
+            },
+            "target": {
+              "B": 36
+            }
+          },
+          "reason": ""
+        },
+        "40": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 19
+            },
+            "source:T": {
+              "CD4": 14,
+              "CD8": 6
+            },
+            "target": {
+              "B": 40
+            }
+          },
+          "reason": ""
+        },
+        "48": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 23
+            },
+            "source:T": {
+              "CD4": 17,
+              "CD8": 7
+            },
+            "target": {
+              "B": 48
+            }
+          },
+          "reason": ""
+        },
+        "512": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "64": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        }
+      },
+      "cytokine": "IFN-\u03b12",
+      "donor": "H2D2",
+      "eligible": true,
+      "heldout_class": "B",
+      "matched_quotas": {
+        "source:Myeloid": {
+          "Dendritic": 1,
+          "Monocyte": 19
+        },
+        "source:T": {
+          "CD4": 14,
+          "CD8": 6
+        },
+        "target": {
+          "B": 40
+        }
+      },
+      "raw_fine_counts": {
+        "p0_all": {
+          "B": 58,
+          "CD4": 616,
+          "CD8": 275,
+          "Dendritic": 6,
+          "Monocyte": 653
+        },
+        "p1_all": {
+          "B": 51,
+          "CD4": 795,
+          "CD8": 311,
+          "Dendritic": 12,
+          "Monocyte": 641
+        }
+      },
+      "reason": "",
+      "role_size": 40
+    },
+    {
+      "candidates": {
+        "128": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "256": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "32": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 16
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 15
+            },
+            "target": {
+              "CD4": 22,
+              "CD8": 10
+            }
+          },
+          "reason": ""
+        },
+        "36": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 18
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 17
+            },
+            "target": {
+              "CD4": 25,
+              "CD8": 11
+            }
+          },
+          "reason": ""
+        },
+        "40": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 20
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 19
+            },
+            "target": {
+              "CD4": 28,
+              "CD8": 12
+            }
+          },
+          "reason": ""
+        },
+        "48": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 24
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 23
+            },
+            "target": {
+              "CD4": 33,
+              "CD8": 15
+            }
+          },
+          "reason": ""
+        },
+        "512": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "64": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 32
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 31
+            },
+            "target": {
+              "CD4": 44,
+              "CD8": 20
+            }
+          },
+          "reason": ""
+        }
+      },
+      "cytokine": "IFN-\u03b12",
+      "donor": "H2D2",
+      "eligible": true,
+      "heldout_class": "T",
+      "matched_quotas": {
+        "source:B": {
+          "B": 20
+        },
+        "source:Myeloid": {
+          "Dendritic": 1,
+          "Monocyte": 19
+        },
+        "target": {
+          "CD4": 28,
+          "CD8": 12
+        }
+      },
+      "raw_fine_counts": {
+        "p0_all": {
+          "B": 58,
+          "CD4": 616,
+          "CD8": 275,
+          "Dendritic": 6,
+          "Monocyte": 653
+        },
+        "p1_all": {
+          "B": 51,
+          "CD4": 795,
+          "CD8": 311,
+          "Dendritic": 12,
+          "Monocyte": 641
+        }
+      },
+      "reason": "",
+      "role_size": 40
+    },
+    {
+      "candidates": {
+        "128": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "256": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "32": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 16
+            },
+            "source:T": {
+              "CD4": 11,
+              "CD8": 5
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 31
+            }
+          },
+          "reason": ""
+        },
+        "36": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 18
+            },
+            "source:T": {
+              "CD4": 12,
+              "CD8": 6
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 35
+            }
+          },
+          "reason": ""
+        },
+        "40": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 20
+            },
+            "source:T": {
+              "CD4": 14,
+              "CD8": 6
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 39
+            }
+          },
+          "reason": ""
+        },
+        "48": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 24
+            },
+            "source:T": {
+              "CD4": 17,
+              "CD8": 7
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 47
+            }
+          },
+          "reason": ""
+        },
+        "512": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "64": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 32
+            },
+            "source:T": {
+              "CD4": 22,
+              "CD8": 10
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 63
+            }
+          },
+          "reason": ""
+        }
+      },
+      "cytokine": "IFN-\u03b12",
+      "donor": "H2D2",
+      "eligible": true,
+      "heldout_class": "Myeloid",
+      "matched_quotas": {
+        "source:B": {
+          "B": 20
+        },
+        "source:T": {
+          "CD4": 14,
+          "CD8": 6
+        },
+        "target": {
+          "Dendritic": 1,
+          "Monocyte": 39
+        }
+      },
+      "raw_fine_counts": {
+        "p0_all": {
+          "B": 58,
+          "CD4": 616,
+          "CD8": 275,
+          "Dendritic": 6,
+          "Monocyte": 653
+        },
+        "p1_all": {
+          "B": 51,
+          "CD4": 795,
+          "CD8": 311,
+          "Dendritic": 12,
+          "Monocyte": 641
+        }
+      },
+      "reason": "",
+      "role_size": 40
+    },
+    {
+      "candidates": {
+        "128": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "256": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "32": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 15
+            },
+            "source:T": {
+              "CD4": 11,
+              "CD8": 5
+            },
+            "target": {
+              "B": 32
+            }
+          },
+          "reason": ""
+        },
+        "36": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 17
+            },
+            "source:T": {
+              "CD4": 12,
+              "CD8": 6
+            },
+            "target": {
+              "B": 36
+            }
+          },
+          "reason": ""
+        },
+        "40": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 19
+            },
+            "source:T": {
+              "CD4": 14,
+              "CD8": 6
+            },
+            "target": {
+              "B": 40
+            }
+          },
+          "reason": ""
+        },
+        "48": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "512": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "64": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        }
+      },
+      "cytokine": "IFN-\u03b2",
+      "donor": "H2D2",
+      "eligible": true,
+      "heldout_class": "B",
+      "matched_quotas": {
+        "source:Myeloid": {
+          "Dendritic": 1,
+          "Monocyte": 19
+        },
+        "source:T": {
+          "CD4": 14,
+          "CD8": 6
+        },
+        "target": {
+          "B": 40
+        }
+      },
+      "raw_fine_counts": {
+        "p0_all": {
+          "B": 58,
+          "CD4": 616,
+          "CD8": 275,
+          "Dendritic": 6,
+          "Monocyte": 653
+        },
+        "p1_all": {
+          "B": 46,
+          "CD4": 547,
+          "CD8": 259,
+          "Dendritic": 19,
+          "Monocyte": 377
+        }
+      },
+      "reason": "",
+      "role_size": 40
+    },
+    {
+      "candidates": {
+        "128": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "256": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "32": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 16
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 15
+            },
+            "target": {
+              "CD4": 22,
+              "CD8": 10
+            }
+          },
+          "reason": ""
+        },
+        "36": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 18
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 17
+            },
+            "target": {
+              "CD4": 25,
+              "CD8": 11
+            }
+          },
+          "reason": ""
+        },
+        "40": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 20
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 19
+            },
+            "target": {
+              "CD4": 28,
+              "CD8": 12
+            }
+          },
+          "reason": ""
+        },
+        "48": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 24
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 23
+            },
+            "target": {
+              "CD4": 33,
+              "CD8": 15
+            }
+          },
+          "reason": ""
+        },
+        "512": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "64": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 32
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 31
+            },
+            "target": {
+              "CD4": 44,
+              "CD8": 20
+            }
+          },
+          "reason": ""
+        }
+      },
+      "cytokine": "IFN-\u03b2",
+      "donor": "H2D2",
+      "eligible": true,
+      "heldout_class": "T",
+      "matched_quotas": {
+        "source:B": {
+          "B": 20
+        },
+        "source:Myeloid": {
+          "Dendritic": 1,
+          "Monocyte": 19
+        },
+        "target": {
+          "CD4": 28,
+          "CD8": 12
+        }
+      },
+      "raw_fine_counts": {
+        "p0_all": {
+          "B": 58,
+          "CD4": 616,
+          "CD8": 275,
+          "Dendritic": 6,
+          "Monocyte": 653
+        },
+        "p1_all": {
+          "B": 46,
+          "CD4": 547,
+          "CD8": 259,
+          "Dendritic": 19,
+          "Monocyte": 377
+        }
+      },
+      "reason": "",
+      "role_size": 40
+    },
+    {
+      "candidates": {
+        "128": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "256": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "32": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 16
+            },
+            "source:T": {
+              "CD4": 11,
+              "CD8": 5
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 31
+            }
+          },
+          "reason": ""
+        },
+        "36": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 18
+            },
+            "source:T": {
+              "CD4": 12,
+              "CD8": 6
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 35
+            }
+          },
+          "reason": ""
+        },
+        "40": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 20
+            },
+            "source:T": {
+              "CD4": 14,
+              "CD8": 6
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 39
+            }
+          },
+          "reason": ""
+        },
+        "48": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 24
+            },
+            "source:T": {
+              "CD4": 17,
+              "CD8": 7
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 47
+            }
+          },
+          "reason": ""
+        },
+        "512": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "64": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 32
+            },
+            "source:T": {
+              "CD4": 22,
+              "CD8": 10
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 63
+            }
+          },
+          "reason": ""
+        }
+      },
+      "cytokine": "IFN-\u03b2",
+      "donor": "H2D2",
+      "eligible": true,
+      "heldout_class": "Myeloid",
+      "matched_quotas": {
+        "source:B": {
+          "B": 20
+        },
+        "source:T": {
+          "CD4": 14,
+          "CD8": 6
+        },
+        "target": {
+          "Dendritic": 1,
+          "Monocyte": 39
+        }
+      },
+      "raw_fine_counts": {
+        "p0_all": {
+          "B": 58,
+          "CD4": 616,
+          "CD8": 275,
+          "Dendritic": 6,
+          "Monocyte": 653
+        },
+        "p1_all": {
+          "B": 46,
+          "CD4": 547,
+          "CD8": 259,
+          "Dendritic": 19,
+          "Monocyte": 377
+        }
+      },
+      "reason": "",
+      "role_size": 40
+    },
+    {
+      "candidates": {
+        "128": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "256": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "32": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 15
+            },
+            "source:T": {
+              "CD4": 11,
+              "CD8": 5
+            },
+            "target": {
+              "B": 32
+            }
+          },
+          "reason": ""
+        },
+        "36": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 17
+            },
+            "source:T": {
+              "CD4": 12,
+              "CD8": 6
+            },
+            "target": {
+              "B": 36
+            }
+          },
+          "reason": ""
+        },
+        "40": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 19
+            },
+            "source:T": {
+              "CD4": 14,
+              "CD8": 6
+            },
+            "target": {
+              "B": 40
+            }
+          },
+          "reason": ""
+        },
+        "48": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "512": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "64": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        }
+      },
+      "cytokine": "IFN-\u03b3",
+      "donor": "H2D2",
+      "eligible": true,
+      "heldout_class": "B",
+      "matched_quotas": {
+        "source:Myeloid": {
+          "Dendritic": 1,
+          "Monocyte": 19
+        },
+        "source:T": {
+          "CD4": 14,
+          "CD8": 6
+        },
+        "target": {
+          "B": 40
+        }
+      },
+      "raw_fine_counts": {
+        "p0_all": {
+          "B": 58,
+          "CD4": 616,
+          "CD8": 275,
+          "Dendritic": 6,
+          "Monocyte": 653
+        },
+        "p1_all": {
+          "B": 45,
+          "CD4": 398,
+          "CD8": 141,
+          "Dendritic": 13,
+          "Monocyte": 419
+        }
+      },
+      "reason": "",
+      "role_size": 40
+    },
+    {
+      "candidates": {
+        "128": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "256": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "32": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 16
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 15
+            },
+            "target": {
+              "CD4": 22,
+              "CD8": 10
+            }
+          },
+          "reason": ""
+        },
+        "36": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 18
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 17
+            },
+            "target": {
+              "CD4": 25,
+              "CD8": 11
+            }
+          },
+          "reason": ""
+        },
+        "40": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 20
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 19
+            },
+            "target": {
+              "CD4": 28,
+              "CD8": 12
+            }
+          },
+          "reason": ""
+        },
+        "48": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 24
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 23
+            },
+            "target": {
+              "CD4": 33,
+              "CD8": 15
+            }
+          },
+          "reason": ""
+        },
+        "512": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "64": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 32
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 31
+            },
+            "target": {
+              "CD4": 44,
+              "CD8": 20
+            }
+          },
+          "reason": ""
+        }
+      },
+      "cytokine": "IFN-\u03b3",
+      "donor": "H2D2",
+      "eligible": true,
+      "heldout_class": "T",
+      "matched_quotas": {
+        "source:B": {
+          "B": 20
+        },
+        "source:Myeloid": {
+          "Dendritic": 1,
+          "Monocyte": 19
+        },
+        "target": {
+          "CD4": 28,
+          "CD8": 12
+        }
+      },
+      "raw_fine_counts": {
+        "p0_all": {
+          "B": 58,
+          "CD4": 616,
+          "CD8": 275,
+          "Dendritic": 6,
+          "Monocyte": 653
+        },
+        "p1_all": {
+          "B": 45,
+          "CD4": 398,
+          "CD8": 141,
+          "Dendritic": 13,
+          "Monocyte": 419
+        }
+      },
+      "reason": "",
+      "role_size": 40
+    },
+    {
+      "candidates": {
+        "128": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "256": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "32": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 16
+            },
+            "source:T": {
+              "CD4": 11,
+              "CD8": 5
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 31
+            }
+          },
+          "reason": ""
+        },
+        "36": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 18
+            },
+            "source:T": {
+              "CD4": 12,
+              "CD8": 6
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 35
+            }
+          },
+          "reason": ""
+        },
+        "40": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 20
+            },
+            "source:T": {
+              "CD4": 14,
+              "CD8": 6
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 39
+            }
+          },
+          "reason": ""
+        },
+        "48": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 24
+            },
+            "source:T": {
+              "CD4": 17,
+              "CD8": 7
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 47
+            }
+          },
+          "reason": ""
+        },
+        "512": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "64": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 32
+            },
+            "source:T": {
+              "CD4": 22,
+              "CD8": 10
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 63
+            }
+          },
+          "reason": ""
+        }
+      },
+      "cytokine": "IFN-\u03b3",
+      "donor": "H2D2",
+      "eligible": true,
+      "heldout_class": "Myeloid",
+      "matched_quotas": {
+        "source:B": {
+          "B": 20
+        },
+        "source:T": {
+          "CD4": 14,
+          "CD8": 6
+        },
+        "target": {
+          "Dendritic": 1,
+          "Monocyte": 39
+        }
+      },
+      "raw_fine_counts": {
+        "p0_all": {
+          "B": 58,
+          "CD4": 616,
+          "CD8": 275,
+          "Dendritic": 6,
+          "Monocyte": 653
+        },
+        "p1_all": {
+          "B": 45,
+          "CD4": 398,
+          "CD8": 141,
+          "Dendritic": 13,
+          "Monocyte": 419
+        }
+      },
+      "reason": "",
+      "role_size": 40
+    },
+    {
+      "candidates": {
+        "128": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "256": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "32": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 15
+            },
+            "source:T": {
+              "CD4": 11,
+              "CD8": 5
+            },
+            "target": {
+              "B": 32
+            }
+          },
+          "reason": ""
+        },
+        "36": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 17
+            },
+            "source:T": {
+              "CD4": 12,
+              "CD8": 6
+            },
+            "target": {
+              "B": 36
+            }
+          },
+          "reason": ""
+        },
+        "40": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 19
+            },
+            "source:T": {
+              "CD4": 14,
+              "CD8": 6
+            },
+            "target": {
+              "B": 40
+            }
+          },
+          "reason": ""
+        },
+        "48": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 23
+            },
+            "source:T": {
+              "CD4": 17,
+              "CD8": 7
+            },
+            "target": {
+              "B": 48
+            }
+          },
+          "reason": ""
+        },
+        "512": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "64": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        }
+      },
+      "cytokine": "IFN-III/IL-29",
+      "donor": "H2D2",
+      "eligible": true,
+      "heldout_class": "B",
+      "matched_quotas": {
+        "source:Myeloid": {
+          "Dendritic": 1,
+          "Monocyte": 19
+        },
+        "source:T": {
+          "CD4": 14,
+          "CD8": 6
+        },
+        "target": {
+          "B": 40
+        }
+      },
+      "raw_fine_counts": {
+        "p0_all": {
+          "B": 58,
+          "CD4": 616,
+          "CD8": 275,
+          "Dendritic": 6,
+          "Monocyte": 653
+        },
+        "p1_all": {
+          "B": 56,
+          "CD4": 644,
+          "CD8": 274,
+          "Dendritic": 8,
+          "Monocyte": 497
+        }
+      },
+      "reason": "",
+      "role_size": 40
+    },
+    {
+      "candidates": {
+        "128": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "256": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "32": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 16
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 15
+            },
+            "target": {
+              "CD4": 22,
+              "CD8": 10
+            }
+          },
+          "reason": ""
+        },
+        "36": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 18
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 17
+            },
+            "target": {
+              "CD4": 25,
+              "CD8": 11
+            }
+          },
+          "reason": ""
+        },
+        "40": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 20
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 19
+            },
+            "target": {
+              "CD4": 28,
+              "CD8": 12
+            }
+          },
+          "reason": ""
+        },
+        "48": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 24
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 23
+            },
+            "target": {
+              "CD4": 33,
+              "CD8": 15
+            }
+          },
+          "reason": ""
+        },
+        "512": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "64": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 32
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 31
+            },
+            "target": {
+              "CD4": 44,
+              "CD8": 20
+            }
+          },
+          "reason": ""
+        }
+      },
+      "cytokine": "IFN-III/IL-29",
+      "donor": "H2D2",
+      "eligible": true,
+      "heldout_class": "T",
+      "matched_quotas": {
+        "source:B": {
+          "B": 20
+        },
+        "source:Myeloid": {
+          "Dendritic": 1,
+          "Monocyte": 19
+        },
+        "target": {
+          "CD4": 28,
+          "CD8": 12
+        }
+      },
+      "raw_fine_counts": {
+        "p0_all": {
+          "B": 58,
+          "CD4": 616,
+          "CD8": 275,
+          "Dendritic": 6,
+          "Monocyte": 653
+        },
+        "p1_all": {
+          "B": 56,
+          "CD4": 644,
+          "CD8": 274,
+          "Dendritic": 8,
+          "Monocyte": 497
+        }
+      },
+      "reason": "",
+      "role_size": 40
+    },
+    {
+      "candidates": {
+        "128": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "256": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "32": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 16
+            },
+            "source:T": {
+              "CD4": 11,
+              "CD8": 5
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 31
+            }
+          },
+          "reason": ""
+        },
+        "36": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 18
+            },
+            "source:T": {
+              "CD4": 12,
+              "CD8": 6
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 35
+            }
+          },
+          "reason": ""
+        },
+        "40": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 20
+            },
+            "source:T": {
+              "CD4": 14,
+              "CD8": 6
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 39
+            }
+          },
+          "reason": ""
+        },
+        "48": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 24
+            },
+            "source:T": {
+              "CD4": 17,
+              "CD8": 7
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 47
+            }
+          },
+          "reason": ""
+        },
+        "512": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "64": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 32
+            },
+            "source:T": {
+              "CD4": 22,
+              "CD8": 10
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 63
+            }
+          },
+          "reason": ""
+        }
+      },
+      "cytokine": "IFN-III/IL-29",
+      "donor": "H2D2",
+      "eligible": true,
+      "heldout_class": "Myeloid",
+      "matched_quotas": {
+        "source:B": {
+          "B": 20
+        },
+        "source:T": {
+          "CD4": 14,
+          "CD8": 6
+        },
+        "target": {
+          "Dendritic": 1,
+          "Monocyte": 39
+        }
+      },
+      "raw_fine_counts": {
+        "p0_all": {
+          "B": 58,
+          "CD4": 616,
+          "CD8": 275,
+          "Dendritic": 6,
+          "Monocyte": 653
+        },
+        "p1_all": {
+          "B": 56,
+          "CD4": 644,
+          "CD8": 274,
+          "Dendritic": 8,
+          "Monocyte": 497
+        }
+      },
+      "reason": "",
+      "role_size": 40
+    },
+    {
+      "candidates": {
+        "128": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "256": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "32": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 15
+            },
+            "source:T": {
+              "CD4": 11,
+              "CD8": 5
+            },
+            "target": {
+              "B": 32
+            }
+          },
+          "reason": ""
+        },
+        "36": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 17
+            },
+            "source:T": {
+              "CD4": 12,
+              "CD8": 6
+            },
+            "target": {
+              "B": 36
+            }
+          },
+          "reason": ""
+        },
+        "40": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "48": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "512": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "64": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        }
+      },
+      "cytokine": "IL-6",
+      "donor": "H2D2",
+      "eligible": false,
+      "heldout_class": "B",
+      "matched_quotas": {},
+      "raw_fine_counts": {
+        "p0_all": {
+          "B": 58,
+          "CD4": 616,
+          "CD8": 275,
+          "Dendritic": 6,
+          "Monocyte": 653
+        },
+        "p1_all": {
+          "B": 36,
+          "CD4": 608,
+          "CD8": 226,
+          "Dendritic": 8,
+          "Monocyte": 516
+        }
+      },
+      "reason": "insufficient fine-stratum availability/capacity",
+      "role_size": 40
+    },
+    {
+      "candidates": {
+        "128": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "256": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "32": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 16
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 15
+            },
+            "target": {
+              "CD4": 22,
+              "CD8": 10
+            }
+          },
+          "reason": ""
+        },
+        "36": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 18
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 17
+            },
+            "target": {
+              "CD4": 25,
+              "CD8": 11
+            }
+          },
+          "reason": ""
+        },
+        "40": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 20
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 19
+            },
+            "target": {
+              "CD4": 28,
+              "CD8": 12
+            }
+          },
+          "reason": ""
+        },
+        "48": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 24
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 23
+            },
+            "target": {
+              "CD4": 33,
+              "CD8": 15
+            }
+          },
+          "reason": ""
+        },
+        "512": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "64": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 32
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 31
+            },
+            "target": {
+              "CD4": 44,
+              "CD8": 20
+            }
+          },
+          "reason": ""
+        }
+      },
+      "cytokine": "IL-6",
+      "donor": "H2D2",
+      "eligible": true,
+      "heldout_class": "T",
+      "matched_quotas": {
+        "source:B": {
+          "B": 20
+        },
+        "source:Myeloid": {
+          "Dendritic": 1,
+          "Monocyte": 19
+        },
+        "target": {
+          "CD4": 28,
+          "CD8": 12
+        }
+      },
+      "raw_fine_counts": {
+        "p0_all": {
+          "B": 58,
+          "CD4": 616,
+          "CD8": 275,
+          "Dendritic": 6,
+          "Monocyte": 653
+        },
+        "p1_all": {
+          "B": 36,
+          "CD4": 608,
+          "CD8": 226,
+          "Dendritic": 8,
+          "Monocyte": 516
+        }
+      },
+      "reason": "",
+      "role_size": 40
+    },
+    {
+      "candidates": {
+        "128": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "256": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "32": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 16
+            },
+            "source:T": {
+              "CD4": 11,
+              "CD8": 5
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 31
+            }
+          },
+          "reason": ""
+        },
+        "36": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 18
+            },
+            "source:T": {
+              "CD4": 12,
+              "CD8": 6
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 35
+            }
+          },
+          "reason": ""
+        },
+        "40": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 20
+            },
+            "source:T": {
+              "CD4": 14,
+              "CD8": 6
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 39
+            }
+          },
+          "reason": ""
+        },
+        "48": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 24
+            },
+            "source:T": {
+              "CD4": 17,
+              "CD8": 7
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 47
+            }
+          },
+          "reason": ""
+        },
+        "512": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "64": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 32
+            },
+            "source:T": {
+              "CD4": 22,
+              "CD8": 10
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 63
+            }
+          },
+          "reason": ""
+        }
+      },
+      "cytokine": "IL-6",
+      "donor": "H2D2",
+      "eligible": true,
+      "heldout_class": "Myeloid",
+      "matched_quotas": {
+        "source:B": {
+          "B": 20
+        },
+        "source:T": {
+          "CD4": 14,
+          "CD8": 6
+        },
+        "target": {
+          "Dendritic": 1,
+          "Monocyte": 39
+        }
+      },
+      "raw_fine_counts": {
+        "p0_all": {
+          "B": 58,
+          "CD4": 616,
+          "CD8": 275,
+          "Dendritic": 6,
+          "Monocyte": 653
+        },
+        "p1_all": {
+          "B": 36,
+          "CD4": 608,
+          "CD8": 226,
+          "Dendritic": 8,
+          "Monocyte": 516
+        }
+      },
+      "reason": "",
+      "role_size": 40
+    },
+    {
+      "candidates": {
+        "128": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "256": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "32": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 15
+            },
+            "source:T": {
+              "CD4": 11,
+              "CD8": 5
+            },
+            "target": {
+              "B": 32
+            }
+          },
+          "reason": ""
+        },
+        "36": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 17
+            },
+            "source:T": {
+              "CD4": 12,
+              "CD8": 6
+            },
+            "target": {
+              "B": 36
+            }
+          },
+          "reason": ""
+        },
+        "40": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 19
+            },
+            "source:T": {
+              "CD4": 14,
+              "CD8": 6
+            },
+            "target": {
+              "B": 40
+            }
+          },
+          "reason": ""
+        },
+        "48": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "512": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "64": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        }
+      },
+      "cytokine": "TNF-\u03b1",
+      "donor": "H2D2",
+      "eligible": true,
+      "heldout_class": "B",
+      "matched_quotas": {
+        "source:Myeloid": {
+          "Dendritic": 1,
+          "Monocyte": 19
+        },
+        "source:T": {
+          "CD4": 14,
+          "CD8": 6
+        },
+        "target": {
+          "B": 40
+        }
+      },
+      "raw_fine_counts": {
+        "p0_all": {
+          "B": 58,
+          "CD4": 616,
+          "CD8": 275,
+          "Dendritic": 6,
+          "Monocyte": 653
+        },
+        "p1_all": {
+          "B": 43,
+          "CD4": 710,
+          "CD8": 285,
+          "Dendritic": 17,
+          "Monocyte": 759
+        }
+      },
+      "reason": "",
+      "role_size": 40
+    },
+    {
+      "candidates": {
+        "128": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "256": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "32": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 16
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 15
+            },
+            "target": {
+              "CD4": 22,
+              "CD8": 10
+            }
+          },
+          "reason": ""
+        },
+        "36": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 18
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 17
+            },
+            "target": {
+              "CD4": 25,
+              "CD8": 11
+            }
+          },
+          "reason": ""
+        },
+        "40": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 20
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 19
+            },
+            "target": {
+              "CD4": 28,
+              "CD8": 12
+            }
+          },
+          "reason": ""
+        },
+        "48": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 24
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 23
+            },
+            "target": {
+              "CD4": 33,
+              "CD8": 15
+            }
+          },
+          "reason": ""
+        },
+        "512": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "64": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 32
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 31
+            },
+            "target": {
+              "CD4": 44,
+              "CD8": 20
+            }
+          },
+          "reason": ""
+        }
+      },
+      "cytokine": "TNF-\u03b1",
+      "donor": "H2D2",
+      "eligible": true,
+      "heldout_class": "T",
+      "matched_quotas": {
+        "source:B": {
+          "B": 20
+        },
+        "source:Myeloid": {
+          "Dendritic": 1,
+          "Monocyte": 19
+        },
+        "target": {
+          "CD4": 28,
+          "CD8": 12
+        }
+      },
+      "raw_fine_counts": {
+        "p0_all": {
+          "B": 58,
+          "CD4": 616,
+          "CD8": 275,
+          "Dendritic": 6,
+          "Monocyte": 653
+        },
+        "p1_all": {
+          "B": 43,
+          "CD4": 710,
+          "CD8": 285,
+          "Dendritic": 17,
+          "Monocyte": 759
+        }
+      },
+      "reason": "",
+      "role_size": 40
+    },
+    {
+      "candidates": {
+        "128": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "256": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "32": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 16
+            },
+            "source:T": {
+              "CD4": 11,
+              "CD8": 5
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 31
+            }
+          },
+          "reason": ""
+        },
+        "36": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 18
+            },
+            "source:T": {
+              "CD4": 12,
+              "CD8": 6
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 35
+            }
+          },
+          "reason": ""
+        },
+        "40": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 20
+            },
+            "source:T": {
+              "CD4": 14,
+              "CD8": 6
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 39
+            }
+          },
+          "reason": ""
+        },
+        "48": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 24
+            },
+            "source:T": {
+              "CD4": 17,
+              "CD8": 7
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 47
+            }
+          },
+          "reason": ""
+        },
+        "512": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "64": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 32
+            },
+            "source:T": {
+              "CD4": 22,
+              "CD8": 10
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 63
+            }
+          },
+          "reason": ""
+        }
+      },
+      "cytokine": "TNF-\u03b1",
+      "donor": "H2D2",
+      "eligible": true,
+      "heldout_class": "Myeloid",
+      "matched_quotas": {
+        "source:B": {
+          "B": 20
+        },
+        "source:T": {
+          "CD4": 14,
+          "CD8": 6
+        },
+        "target": {
+          "Dendritic": 1,
+          "Monocyte": 39
+        }
+      },
+      "raw_fine_counts": {
+        "p0_all": {
+          "B": 58,
+          "CD4": 616,
+          "CD8": 275,
+          "Dendritic": 6,
+          "Monocyte": 653
+        },
+        "p1_all": {
+          "B": 43,
+          "CD4": 710,
+          "CD8": 285,
+          "Dendritic": 17,
+          "Monocyte": 759
+        }
+      },
+      "reason": "",
+      "role_size": 40
+    },
+    {
+      "candidates": {
+        "128": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "256": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "32": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 15
+            },
+            "source:T": {
+              "CD4": 10,
+              "CD8": 6
+            },
+            "target": {
+              "B": 32
+            }
+          },
+          "reason": ""
+        },
+        "36": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 17
+            },
+            "source:T": {
+              "CD4": 12,
+              "CD8": 6
+            },
+            "target": {
+              "B": 36
+            }
+          },
+          "reason": ""
+        },
+        "40": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 19
+            },
+            "source:T": {
+              "CD4": 13,
+              "CD8": 7
+            },
+            "target": {
+              "B": 40
+            }
+          },
+          "reason": ""
+        },
+        "48": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 23
+            },
+            "source:T": {
+              "CD4": 16,
+              "CD8": 8
+            },
+            "target": {
+              "B": 48
+            }
+          },
+          "reason": ""
+        },
+        "512": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "64": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 31
+            },
+            "source:T": {
+              "CD4": 21,
+              "CD8": 11
+            },
+            "target": {
+              "B": 64
+            }
+          },
+          "reason": ""
+        }
+      },
+      "cytokine": "IFN-\u03b12",
+      "donor": "H3D2",
+      "eligible": true,
+      "heldout_class": "B",
+      "matched_quotas": {
+        "source:Myeloid": {
+          "Dendritic": 1,
+          "Monocyte": 19
+        },
+        "source:T": {
+          "CD4": 13,
+          "CD8": 7
+        },
+        "target": {
+          "B": 40
+        }
+      },
+      "raw_fine_counts": {
+        "p0_all": {
+          "B": 96,
+          "CD4": 569,
+          "CD8": 309,
+          "Dendritic": 4,
+          "Monocyte": 602
+        },
+        "p1_all": {
+          "B": 135,
+          "CD4": 826,
+          "CD8": 398,
+          "Dendritic": 16,
+          "Monocyte": 830
+        }
+      },
+      "reason": "",
+      "role_size": 40
+    },
+    {
+      "candidates": {
+        "128": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 64
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 63
+            },
+            "target": {
+              "CD4": 83,
+              "CD8": 45
+            }
+          },
+          "reason": ""
+        },
+        "256": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "32": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 16
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 15
+            },
+            "target": {
+              "CD4": 21,
+              "CD8": 11
+            }
+          },
+          "reason": ""
+        },
+        "36": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 18
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 17
+            },
+            "target": {
+              "CD4": 23,
+              "CD8": 13
+            }
+          },
+          "reason": ""
+        },
+        "40": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 20
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 19
+            },
+            "target": {
+              "CD4": 26,
+              "CD8": 14
+            }
+          },
+          "reason": ""
+        },
+        "48": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 24
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 23
+            },
+            "target": {
+              "CD4": 31,
+              "CD8": 17
+            }
+          },
+          "reason": ""
+        },
+        "512": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "64": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 32
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 31
+            },
+            "target": {
+              "CD4": 41,
+              "CD8": 23
+            }
+          },
+          "reason": ""
+        }
+      },
+      "cytokine": "IFN-\u03b12",
+      "donor": "H3D2",
+      "eligible": true,
+      "heldout_class": "T",
+      "matched_quotas": {
+        "source:B": {
+          "B": 20
+        },
+        "source:Myeloid": {
+          "Dendritic": 1,
+          "Monocyte": 19
+        },
+        "target": {
+          "CD4": 26,
+          "CD8": 14
+        }
+      },
+      "raw_fine_counts": {
+        "p0_all": {
+          "B": 96,
+          "CD4": 569,
+          "CD8": 309,
+          "Dendritic": 4,
+          "Monocyte": 602
+        },
+        "p1_all": {
+          "B": 135,
+          "CD4": 826,
+          "CD8": 398,
+          "Dendritic": 16,
+          "Monocyte": 830
+        }
+      },
+      "reason": "",
+      "role_size": 40
+    },
+    {
+      "candidates": {
+        "128": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 64
+            },
+            "source:T": {
+              "CD4": 41,
+              "CD8": 23
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 127
+            }
+          },
+          "reason": ""
+        },
+        "256": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "32": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 16
+            },
+            "source:T": {
+              "CD4": 10,
+              "CD8": 6
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 31
+            }
+          },
+          "reason": ""
+        },
+        "36": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 18
+            },
+            "source:T": {
+              "CD4": 12,
+              "CD8": 6
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 35
+            }
+          },
+          "reason": ""
+        },
+        "40": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 20
+            },
+            "source:T": {
+              "CD4": 13,
+              "CD8": 7
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 39
+            }
+          },
+          "reason": ""
+        },
+        "48": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 24
+            },
+            "source:T": {
+              "CD4": 16,
+              "CD8": 8
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 47
+            }
+          },
+          "reason": ""
+        },
+        "512": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "64": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 32
+            },
+            "source:T": {
+              "CD4": 21,
+              "CD8": 11
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 63
+            }
+          },
+          "reason": ""
+        }
+      },
+      "cytokine": "IFN-\u03b12",
+      "donor": "H3D2",
+      "eligible": true,
+      "heldout_class": "Myeloid",
+      "matched_quotas": {
+        "source:B": {
+          "B": 20
+        },
+        "source:T": {
+          "CD4": 13,
+          "CD8": 7
+        },
+        "target": {
+          "Dendritic": 1,
+          "Monocyte": 39
+        }
+      },
+      "raw_fine_counts": {
+        "p0_all": {
+          "B": 96,
+          "CD4": 569,
+          "CD8": 309,
+          "Dendritic": 4,
+          "Monocyte": 602
+        },
+        "p1_all": {
+          "B": 135,
+          "CD4": 826,
+          "CD8": 398,
+          "Dendritic": 16,
+          "Monocyte": 830
+        }
+      },
+      "reason": "",
+      "role_size": 40
+    },
+    {
+      "candidates": {
+        "128": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "256": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "32": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 15
+            },
+            "source:T": {
+              "CD4": 10,
+              "CD8": 6
+            },
+            "target": {
+              "B": 32
+            }
+          },
+          "reason": ""
+        },
+        "36": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 17
+            },
+            "source:T": {
+              "CD4": 12,
+              "CD8": 6
+            },
+            "target": {
+              "B": 36
+            }
+          },
+          "reason": ""
+        },
+        "40": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 19
+            },
+            "source:T": {
+              "CD4": 13,
+              "CD8": 7
+            },
+            "target": {
+              "B": 40
+            }
+          },
+          "reason": ""
+        },
+        "48": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 23
+            },
+            "source:T": {
+              "CD4": 16,
+              "CD8": 8
+            },
+            "target": {
+              "B": 48
+            }
+          },
+          "reason": ""
+        },
+        "512": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "64": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 31
+            },
+            "source:T": {
+              "CD4": 21,
+              "CD8": 11
+            },
+            "target": {
+              "B": 64
+            }
+          },
+          "reason": ""
+        }
+      },
+      "cytokine": "IFN-\u03b2",
+      "donor": "H3D2",
+      "eligible": true,
+      "heldout_class": "B",
+      "matched_quotas": {
+        "source:Myeloid": {
+          "Dendritic": 1,
+          "Monocyte": 19
+        },
+        "source:T": {
+          "CD4": 13,
+          "CD8": 7
+        },
+        "target": {
+          "B": 40
+        }
+      },
+      "raw_fine_counts": {
+        "p0_all": {
+          "B": 96,
+          "CD4": 569,
+          "CD8": 309,
+          "Dendritic": 4,
+          "Monocyte": 602
+        },
+        "p1_all": {
+          "B": 130,
+          "CD4": 814,
+          "CD8": 421,
+          "Dendritic": 10,
+          "Monocyte": 608
+        }
+      },
+      "reason": "",
+      "role_size": 40
+    },
+    {
+      "candidates": {
+        "128": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 64
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 63
+            },
+            "target": {
+              "CD4": 83,
+              "CD8": 45
+            }
+          },
+          "reason": ""
+        },
+        "256": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "32": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 16
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 15
+            },
+            "target": {
+              "CD4": 21,
+              "CD8": 11
+            }
+          },
+          "reason": ""
+        },
+        "36": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 18
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 17
+            },
+            "target": {
+              "CD4": 23,
+              "CD8": 13
+            }
+          },
+          "reason": ""
+        },
+        "40": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 20
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 19
+            },
+            "target": {
+              "CD4": 26,
+              "CD8": 14
+            }
+          },
+          "reason": ""
+        },
+        "48": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 24
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 23
+            },
+            "target": {
+              "CD4": 31,
+              "CD8": 17
+            }
+          },
+          "reason": ""
+        },
+        "512": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "64": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 32
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 31
+            },
+            "target": {
+              "CD4": 41,
+              "CD8": 23
+            }
+          },
+          "reason": ""
+        }
+      },
+      "cytokine": "IFN-\u03b2",
+      "donor": "H3D2",
+      "eligible": true,
+      "heldout_class": "T",
+      "matched_quotas": {
+        "source:B": {
+          "B": 20
+        },
+        "source:Myeloid": {
+          "Dendritic": 1,
+          "Monocyte": 19
+        },
+        "target": {
+          "CD4": 26,
+          "CD8": 14
+        }
+      },
+      "raw_fine_counts": {
+        "p0_all": {
+          "B": 96,
+          "CD4": 569,
+          "CD8": 309,
+          "Dendritic": 4,
+          "Monocyte": 602
+        },
+        "p1_all": {
+          "B": 130,
+          "CD4": 814,
+          "CD8": 421,
+          "Dendritic": 10,
+          "Monocyte": 608
+        }
+      },
+      "reason": "",
+      "role_size": 40
+    },
+    {
+      "candidates": {
+        "128": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 64
+            },
+            "source:T": {
+              "CD4": 41,
+              "CD8": 23
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 127
+            }
+          },
+          "reason": ""
+        },
+        "256": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "32": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 16
+            },
+            "source:T": {
+              "CD4": 10,
+              "CD8": 6
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 31
+            }
+          },
+          "reason": ""
+        },
+        "36": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 18
+            },
+            "source:T": {
+              "CD4": 12,
+              "CD8": 6
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 35
+            }
+          },
+          "reason": ""
+        },
+        "40": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 20
+            },
+            "source:T": {
+              "CD4": 13,
+              "CD8": 7
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 39
+            }
+          },
+          "reason": ""
+        },
+        "48": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 24
+            },
+            "source:T": {
+              "CD4": 16,
+              "CD8": 8
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 47
+            }
+          },
+          "reason": ""
+        },
+        "512": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "64": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 32
+            },
+            "source:T": {
+              "CD4": 21,
+              "CD8": 11
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 63
+            }
+          },
+          "reason": ""
+        }
+      },
+      "cytokine": "IFN-\u03b2",
+      "donor": "H3D2",
+      "eligible": true,
+      "heldout_class": "Myeloid",
+      "matched_quotas": {
+        "source:B": {
+          "B": 20
+        },
+        "source:T": {
+          "CD4": 13,
+          "CD8": 7
+        },
+        "target": {
+          "Dendritic": 1,
+          "Monocyte": 39
+        }
+      },
+      "raw_fine_counts": {
+        "p0_all": {
+          "B": 96,
+          "CD4": 569,
+          "CD8": 309,
+          "Dendritic": 4,
+          "Monocyte": 602
+        },
+        "p1_all": {
+          "B": 130,
+          "CD4": 814,
+          "CD8": 421,
+          "Dendritic": 10,
+          "Monocyte": 608
+        }
+      },
+      "reason": "",
+      "role_size": 40
+    },
+    {
+      "candidates": {
+        "128": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "256": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "32": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 15
+            },
+            "source:T": {
+              "CD4": 10,
+              "CD8": 6
+            },
+            "target": {
+              "B": 32
+            }
+          },
+          "reason": ""
+        },
+        "36": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 17
+            },
+            "source:T": {
+              "CD4": 12,
+              "CD8": 6
+            },
+            "target": {
+              "B": 36
+            }
+          },
+          "reason": ""
+        },
+        "40": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 19
+            },
+            "source:T": {
+              "CD4": 13,
+              "CD8": 7
+            },
+            "target": {
+              "B": 40
+            }
+          },
+          "reason": ""
+        },
+        "48": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 23
+            },
+            "source:T": {
+              "CD4": 16,
+              "CD8": 8
+            },
+            "target": {
+              "B": 48
+            }
+          },
+          "reason": ""
+        },
+        "512": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "64": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 31
+            },
+            "source:T": {
+              "CD4": 21,
+              "CD8": 11
+            },
+            "target": {
+              "B": 64
+            }
+          },
+          "reason": ""
+        }
+      },
+      "cytokine": "IFN-\u03b3",
+      "donor": "H3D2",
+      "eligible": true,
+      "heldout_class": "B",
+      "matched_quotas": {
+        "source:Myeloid": {
+          "Dendritic": 1,
+          "Monocyte": 19
+        },
+        "source:T": {
+          "CD4": 13,
+          "CD8": 7
+        },
+        "target": {
+          "B": 40
+        }
+      },
+      "raw_fine_counts": {
+        "p0_all": {
+          "B": 96,
+          "CD4": 569,
+          "CD8": 309,
+          "Dendritic": 4,
+          "Monocyte": 602
+        },
+        "p1_all": {
+          "B": 126,
+          "CD4": 377,
+          "CD8": 325,
+          "Dendritic": 16,
+          "Monocyte": 473
+        }
+      },
+      "reason": "",
+      "role_size": 40
+    },
+    {
+      "candidates": {
+        "128": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 64
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 63
+            },
+            "target": {
+              "CD4": 83,
+              "CD8": 45
+            }
+          },
+          "reason": ""
+        },
+        "256": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "32": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 16
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 15
+            },
+            "target": {
+              "CD4": 21,
+              "CD8": 11
+            }
+          },
+          "reason": ""
+        },
+        "36": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 18
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 17
+            },
+            "target": {
+              "CD4": 23,
+              "CD8": 13
+            }
+          },
+          "reason": ""
+        },
+        "40": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 20
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 19
+            },
+            "target": {
+              "CD4": 26,
+              "CD8": 14
+            }
+          },
+          "reason": ""
+        },
+        "48": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 24
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 23
+            },
+            "target": {
+              "CD4": 31,
+              "CD8": 17
+            }
+          },
+          "reason": ""
+        },
+        "512": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "64": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 32
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 31
+            },
+            "target": {
+              "CD4": 41,
+              "CD8": 23
+            }
+          },
+          "reason": ""
+        }
+      },
+      "cytokine": "IFN-\u03b3",
+      "donor": "H3D2",
+      "eligible": true,
+      "heldout_class": "T",
+      "matched_quotas": {
+        "source:B": {
+          "B": 20
+        },
+        "source:Myeloid": {
+          "Dendritic": 1,
+          "Monocyte": 19
+        },
+        "target": {
+          "CD4": 26,
+          "CD8": 14
+        }
+      },
+      "raw_fine_counts": {
+        "p0_all": {
+          "B": 96,
+          "CD4": 569,
+          "CD8": 309,
+          "Dendritic": 4,
+          "Monocyte": 602
+        },
+        "p1_all": {
+          "B": 126,
+          "CD4": 377,
+          "CD8": 325,
+          "Dendritic": 16,
+          "Monocyte": 473
+        }
+      },
+      "reason": "",
+      "role_size": 40
+    },
+    {
+      "candidates": {
+        "128": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 64
+            },
+            "source:T": {
+              "CD4": 41,
+              "CD8": 23
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 127
+            }
+          },
+          "reason": ""
+        },
+        "256": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "32": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 16
+            },
+            "source:T": {
+              "CD4": 10,
+              "CD8": 6
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 31
+            }
+          },
+          "reason": ""
+        },
+        "36": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 18
+            },
+            "source:T": {
+              "CD4": 12,
+              "CD8": 6
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 35
+            }
+          },
+          "reason": ""
+        },
+        "40": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 20
+            },
+            "source:T": {
+              "CD4": 13,
+              "CD8": 7
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 39
+            }
+          },
+          "reason": ""
+        },
+        "48": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 24
+            },
+            "source:T": {
+              "CD4": 16,
+              "CD8": 8
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 47
+            }
+          },
+          "reason": ""
+        },
+        "512": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "64": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 32
+            },
+            "source:T": {
+              "CD4": 21,
+              "CD8": 11
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 63
+            }
+          },
+          "reason": ""
+        }
+      },
+      "cytokine": "IFN-\u03b3",
+      "donor": "H3D2",
+      "eligible": true,
+      "heldout_class": "Myeloid",
+      "matched_quotas": {
+        "source:B": {
+          "B": 20
+        },
+        "source:T": {
+          "CD4": 13,
+          "CD8": 7
+        },
+        "target": {
+          "Dendritic": 1,
+          "Monocyte": 39
+        }
+      },
+      "raw_fine_counts": {
+        "p0_all": {
+          "B": 96,
+          "CD4": 569,
+          "CD8": 309,
+          "Dendritic": 4,
+          "Monocyte": 602
+        },
+        "p1_all": {
+          "B": 126,
+          "CD4": 377,
+          "CD8": 325,
+          "Dendritic": 16,
+          "Monocyte": 473
+        }
+      },
+      "reason": "",
+      "role_size": 40
+    },
+    {
+      "candidates": {
+        "128": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "256": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "32": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 15
+            },
+            "source:T": {
+              "CD4": 10,
+              "CD8": 6
+            },
+            "target": {
+              "B": 32
+            }
+          },
+          "reason": ""
+        },
+        "36": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 17
+            },
+            "source:T": {
+              "CD4": 12,
+              "CD8": 6
+            },
+            "target": {
+              "B": 36
+            }
+          },
+          "reason": ""
+        },
+        "40": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 19
+            },
+            "source:T": {
+              "CD4": 13,
+              "CD8": 7
+            },
+            "target": {
+              "B": 40
+            }
+          },
+          "reason": ""
+        },
+        "48": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 23
+            },
+            "source:T": {
+              "CD4": 16,
+              "CD8": 8
+            },
+            "target": {
+              "B": 48
+            }
+          },
+          "reason": ""
+        },
+        "512": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "64": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 31
+            },
+            "source:T": {
+              "CD4": 21,
+              "CD8": 11
+            },
+            "target": {
+              "B": 64
+            }
+          },
+          "reason": ""
+        }
+      },
+      "cytokine": "IFN-III/IL-29",
+      "donor": "H3D2",
+      "eligible": true,
+      "heldout_class": "B",
+      "matched_quotas": {
+        "source:Myeloid": {
+          "Dendritic": 1,
+          "Monocyte": 19
+        },
+        "source:T": {
+          "CD4": 13,
+          "CD8": 7
+        },
+        "target": {
+          "B": 40
+        }
+      },
+      "raw_fine_counts": {
+        "p0_all": {
+          "B": 96,
+          "CD4": 569,
+          "CD8": 309,
+          "Dendritic": 4,
+          "Monocyte": 602
+        },
+        "p1_all": {
+          "B": 95,
+          "CD4": 438,
+          "CD8": 281,
+          "Dendritic": 9,
+          "Monocyte": 596
+        }
+      },
+      "reason": "",
+      "role_size": 40
+    },
+    {
+      "candidates": {
+        "128": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 64
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 63
+            },
+            "target": {
+              "CD4": 83,
+              "CD8": 45
+            }
+          },
+          "reason": ""
+        },
+        "256": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "32": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 16
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 15
+            },
+            "target": {
+              "CD4": 21,
+              "CD8": 11
+            }
+          },
+          "reason": ""
+        },
+        "36": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 18
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 17
+            },
+            "target": {
+              "CD4": 23,
+              "CD8": 13
+            }
+          },
+          "reason": ""
+        },
+        "40": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 20
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 19
+            },
+            "target": {
+              "CD4": 26,
+              "CD8": 14
+            }
+          },
+          "reason": ""
+        },
+        "48": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 24
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 23
+            },
+            "target": {
+              "CD4": 31,
+              "CD8": 17
+            }
+          },
+          "reason": ""
+        },
+        "512": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "64": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 32
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 31
+            },
+            "target": {
+              "CD4": 41,
+              "CD8": 23
+            }
+          },
+          "reason": ""
+        }
+      },
+      "cytokine": "IFN-III/IL-29",
+      "donor": "H3D2",
+      "eligible": true,
+      "heldout_class": "T",
+      "matched_quotas": {
+        "source:B": {
+          "B": 20
+        },
+        "source:Myeloid": {
+          "Dendritic": 1,
+          "Monocyte": 19
+        },
+        "target": {
+          "CD4": 26,
+          "CD8": 14
+        }
+      },
+      "raw_fine_counts": {
+        "p0_all": {
+          "B": 96,
+          "CD4": 569,
+          "CD8": 309,
+          "Dendritic": 4,
+          "Monocyte": 602
+        },
+        "p1_all": {
+          "B": 95,
+          "CD4": 438,
+          "CD8": 281,
+          "Dendritic": 9,
+          "Monocyte": 596
+        }
+      },
+      "reason": "",
+      "role_size": 40
+    },
+    {
+      "candidates": {
+        "128": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 64
+            },
+            "source:T": {
+              "CD4": 41,
+              "CD8": 23
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 127
+            }
+          },
+          "reason": ""
+        },
+        "256": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "32": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 16
+            },
+            "source:T": {
+              "CD4": 10,
+              "CD8": 6
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 31
+            }
+          },
+          "reason": ""
+        },
+        "36": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 18
+            },
+            "source:T": {
+              "CD4": 12,
+              "CD8": 6
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 35
+            }
+          },
+          "reason": ""
+        },
+        "40": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 20
+            },
+            "source:T": {
+              "CD4": 13,
+              "CD8": 7
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 39
+            }
+          },
+          "reason": ""
+        },
+        "48": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 24
+            },
+            "source:T": {
+              "CD4": 16,
+              "CD8": 8
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 47
+            }
+          },
+          "reason": ""
+        },
+        "512": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "64": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 32
+            },
+            "source:T": {
+              "CD4": 21,
+              "CD8": 11
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 63
+            }
+          },
+          "reason": ""
+        }
+      },
+      "cytokine": "IFN-III/IL-29",
+      "donor": "H3D2",
+      "eligible": true,
+      "heldout_class": "Myeloid",
+      "matched_quotas": {
+        "source:B": {
+          "B": 20
+        },
+        "source:T": {
+          "CD4": 13,
+          "CD8": 7
+        },
+        "target": {
+          "Dendritic": 1,
+          "Monocyte": 39
+        }
+      },
+      "raw_fine_counts": {
+        "p0_all": {
+          "B": 96,
+          "CD4": 569,
+          "CD8": 309,
+          "Dendritic": 4,
+          "Monocyte": 602
+        },
+        "p1_all": {
+          "B": 95,
+          "CD4": 438,
+          "CD8": 281,
+          "Dendritic": 9,
+          "Monocyte": 596
+        }
+      },
+      "reason": "",
+      "role_size": 40
+    },
+    {
+      "candidates": {
+        "128": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "256": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "32": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 15
+            },
+            "source:T": {
+              "CD4": 10,
+              "CD8": 6
+            },
+            "target": {
+              "B": 32
+            }
+          },
+          "reason": ""
+        },
+        "36": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 17
+            },
+            "source:T": {
+              "CD4": 12,
+              "CD8": 6
+            },
+            "target": {
+              "B": 36
+            }
+          },
+          "reason": ""
+        },
+        "40": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 19
+            },
+            "source:T": {
+              "CD4": 13,
+              "CD8": 7
+            },
+            "target": {
+              "B": 40
+            }
+          },
+          "reason": ""
+        },
+        "48": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 23
+            },
+            "source:T": {
+              "CD4": 16,
+              "CD8": 8
+            },
+            "target": {
+              "B": 48
+            }
+          },
+          "reason": ""
+        },
+        "512": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "64": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 31
+            },
+            "source:T": {
+              "CD4": 21,
+              "CD8": 11
+            },
+            "target": {
+              "B": 64
+            }
+          },
+          "reason": ""
+        }
+      },
+      "cytokine": "IL-6",
+      "donor": "H3D2",
+      "eligible": true,
+      "heldout_class": "B",
+      "matched_quotas": {
+        "source:Myeloid": {
+          "Dendritic": 1,
+          "Monocyte": 19
+        },
+        "source:T": {
+          "CD4": 13,
+          "CD8": 7
+        },
+        "target": {
+          "B": 40
+        }
+      },
+      "raw_fine_counts": {
+        "p0_all": {
+          "B": 96,
+          "CD4": 569,
+          "CD8": 309,
+          "Dendritic": 4,
+          "Monocyte": 602
+        },
+        "p1_all": {
+          "B": 86,
+          "CD4": 718,
+          "CD8": 353,
+          "Dendritic": 4,
+          "Monocyte": 706
+        }
+      },
+      "reason": "",
+      "role_size": 40
+    },
+    {
+      "candidates": {
+        "128": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 64
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 63
+            },
+            "target": {
+              "CD4": 83,
+              "CD8": 45
+            }
+          },
+          "reason": ""
+        },
+        "256": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "32": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 16
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 15
+            },
+            "target": {
+              "CD4": 21,
+              "CD8": 11
+            }
+          },
+          "reason": ""
+        },
+        "36": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 18
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 17
+            },
+            "target": {
+              "CD4": 23,
+              "CD8": 13
+            }
+          },
+          "reason": ""
+        },
+        "40": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 20
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 19
+            },
+            "target": {
+              "CD4": 26,
+              "CD8": 14
+            }
+          },
+          "reason": ""
+        },
+        "48": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 24
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 23
+            },
+            "target": {
+              "CD4": 31,
+              "CD8": 17
+            }
+          },
+          "reason": ""
+        },
+        "512": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "64": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 32
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 31
+            },
+            "target": {
+              "CD4": 41,
+              "CD8": 23
+            }
+          },
+          "reason": ""
+        }
+      },
+      "cytokine": "IL-6",
+      "donor": "H3D2",
+      "eligible": true,
+      "heldout_class": "T",
+      "matched_quotas": {
+        "source:B": {
+          "B": 20
+        },
+        "source:Myeloid": {
+          "Dendritic": 1,
+          "Monocyte": 19
+        },
+        "target": {
+          "CD4": 26,
+          "CD8": 14
+        }
+      },
+      "raw_fine_counts": {
+        "p0_all": {
+          "B": 96,
+          "CD4": 569,
+          "CD8": 309,
+          "Dendritic": 4,
+          "Monocyte": 602
+        },
+        "p1_all": {
+          "B": 86,
+          "CD4": 718,
+          "CD8": 353,
+          "Dendritic": 4,
+          "Monocyte": 706
+        }
+      },
+      "reason": "",
+      "role_size": 40
+    },
+    {
+      "candidates": {
+        "128": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 64
+            },
+            "source:T": {
+              "CD4": 41,
+              "CD8": 23
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 127
+            }
+          },
+          "reason": ""
+        },
+        "256": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "32": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 16
+            },
+            "source:T": {
+              "CD4": 10,
+              "CD8": 6
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 31
+            }
+          },
+          "reason": ""
+        },
+        "36": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 18
+            },
+            "source:T": {
+              "CD4": 12,
+              "CD8": 6
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 35
+            }
+          },
+          "reason": ""
+        },
+        "40": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 20
+            },
+            "source:T": {
+              "CD4": 13,
+              "CD8": 7
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 39
+            }
+          },
+          "reason": ""
+        },
+        "48": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 24
+            },
+            "source:T": {
+              "CD4": 16,
+              "CD8": 8
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 47
+            }
+          },
+          "reason": ""
+        },
+        "512": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "64": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 32
+            },
+            "source:T": {
+              "CD4": 21,
+              "CD8": 11
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 63
+            }
+          },
+          "reason": ""
+        }
+      },
+      "cytokine": "IL-6",
+      "donor": "H3D2",
+      "eligible": true,
+      "heldout_class": "Myeloid",
+      "matched_quotas": {
+        "source:B": {
+          "B": 20
+        },
+        "source:T": {
+          "CD4": 13,
+          "CD8": 7
+        },
+        "target": {
+          "Dendritic": 1,
+          "Monocyte": 39
+        }
+      },
+      "raw_fine_counts": {
+        "p0_all": {
+          "B": 96,
+          "CD4": 569,
+          "CD8": 309,
+          "Dendritic": 4,
+          "Monocyte": 602
+        },
+        "p1_all": {
+          "B": 86,
+          "CD4": 718,
+          "CD8": 353,
+          "Dendritic": 4,
+          "Monocyte": 706
+        }
+      },
+      "reason": "",
+      "role_size": 40
+    },
+    {
+      "candidates": {
+        "128": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "256": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "32": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 15
+            },
+            "source:T": {
+              "CD4": 10,
+              "CD8": 6
+            },
+            "target": {
+              "B": 32
+            }
+          },
+          "reason": ""
+        },
+        "36": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 17
+            },
+            "source:T": {
+              "CD4": 12,
+              "CD8": 6
+            },
+            "target": {
+              "B": 36
+            }
+          },
+          "reason": ""
+        },
+        "40": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 19
+            },
+            "source:T": {
+              "CD4": 13,
+              "CD8": 7
+            },
+            "target": {
+              "B": 40
+            }
+          },
+          "reason": ""
+        },
+        "48": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "512": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "64": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        }
+      },
+      "cytokine": "TNF-\u03b1",
+      "donor": "H3D2",
+      "eligible": true,
+      "heldout_class": "B",
+      "matched_quotas": {
+        "source:Myeloid": {
+          "Dendritic": 1,
+          "Monocyte": 19
+        },
+        "source:T": {
+          "CD4": 13,
+          "CD8": 7
+        },
+        "target": {
+          "B": 40
+        }
+      },
+      "raw_fine_counts": {
+        "p0_all": {
+          "B": 96,
+          "CD4": 569,
+          "CD8": 309,
+          "Dendritic": 4,
+          "Monocyte": 602
+        },
+        "p1_all": {
+          "B": 44,
+          "CD4": 286,
+          "CD8": 178,
+          "Dendritic": 5,
+          "Monocyte": 421
+        }
+      },
+      "reason": "",
+      "role_size": 40
+    },
+    {
+      "candidates": {
+        "128": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "256": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "32": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 16
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 15
+            },
+            "target": {
+              "CD4": 21,
+              "CD8": 11
+            }
+          },
+          "reason": ""
+        },
+        "36": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 18
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 17
+            },
+            "target": {
+              "CD4": 23,
+              "CD8": 13
+            }
+          },
+          "reason": ""
+        },
+        "40": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 20
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 19
+            },
+            "target": {
+              "CD4": 26,
+              "CD8": 14
+            }
+          },
+          "reason": ""
+        },
+        "48": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 24
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 23
+            },
+            "target": {
+              "CD4": 31,
+              "CD8": 17
+            }
+          },
+          "reason": ""
+        },
+        "512": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "64": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 32
+            },
+            "source:Myeloid": {
+              "Dendritic": 1,
+              "Monocyte": 31
+            },
+            "target": {
+              "CD4": 41,
+              "CD8": 23
+            }
+          },
+          "reason": ""
+        }
+      },
+      "cytokine": "TNF-\u03b1",
+      "donor": "H3D2",
+      "eligible": true,
+      "heldout_class": "T",
+      "matched_quotas": {
+        "source:B": {
+          "B": 20
+        },
+        "source:Myeloid": {
+          "Dendritic": 1,
+          "Monocyte": 19
+        },
+        "target": {
+          "CD4": 26,
+          "CD8": 14
+        }
+      },
+      "raw_fine_counts": {
+        "p0_all": {
+          "B": 96,
+          "CD4": 569,
+          "CD8": 309,
+          "Dendritic": 4,
+          "Monocyte": 602
+        },
+        "p1_all": {
+          "B": 44,
+          "CD4": 286,
+          "CD8": 178,
+          "Dendritic": 5,
+          "Monocyte": 421
+        }
+      },
+      "reason": "",
+      "role_size": 40
+    },
+    {
+      "candidates": {
+        "128": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "256": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "32": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 16
+            },
+            "source:T": {
+              "CD4": 10,
+              "CD8": 6
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 31
+            }
+          },
+          "reason": ""
+        },
+        "36": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 18
+            },
+            "source:T": {
+              "CD4": 12,
+              "CD8": 6
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 35
+            }
+          },
+          "reason": ""
+        },
+        "40": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 20
+            },
+            "source:T": {
+              "CD4": 13,
+              "CD8": 7
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 39
+            }
+          },
+          "reason": ""
+        },
+        "48": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 24
+            },
+            "source:T": {
+              "CD4": 16,
+              "CD8": 8
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 47
+            }
+          },
+          "reason": ""
+        },
+        "512": {
+          "eligible": false,
+          "matched_quotas": {},
+          "reason": "insufficient fine-stratum availability/capacity"
+        },
+        "64": {
+          "eligible": true,
+          "matched_quotas": {
+            "source:B": {
+              "B": 32
+            },
+            "source:T": {
+              "CD4": 21,
+              "CD8": 11
+            },
+            "target": {
+              "Dendritic": 1,
+              "Monocyte": 63
+            }
+          },
+          "reason": ""
+        }
+      },
+      "cytokine": "TNF-\u03b1",
+      "donor": "H3D2",
+      "eligible": true,
+      "heldout_class": "Myeloid",
+      "matched_quotas": {
+        "source:B": {
+          "B": 20
+        },
+        "source:T": {
+          "CD4": 13,
+          "CD8": 7
+        },
+        "target": {
+          "Dendritic": 1,
+          "Monocyte": 39
+        }
+      },
+      "raw_fine_counts": {
+        "p0_all": {
+          "B": 96,
+          "CD4": 569,
+          "CD8": 309,
+          "Dendritic": 4,
+          "Monocyte": 602
+        },
+        "p1_all": {
+          "B": 44,
+          "CD4": 286,
+          "CD8": 178,
+          "Dendritic": 5,
+          "Monocyte": 421
+        }
+      },
+      "reason": "",
+      "role_size": 40
+    }
+  ],
+  "tier_coverage": {
+    "128": {
+      "n_units": 0,
+      "paired_units": [],
+      "passes": false,
+      "per_class": {
+        "B": 0,
+        "Myeloid": 0,
+        "T": 0
+      },
+      "per_cytokine": {
+        "IFN-III/IL-29": 0,
+        "IFN-\u03b12": 0,
+        "IFN-\u03b2": 0,
+        "IFN-\u03b3": 0,
+        "IL-6": 0,
+        "TNF-\u03b1": 0
+      }
+    },
+    "256": {
+      "n_units": 0,
+      "paired_units": [],
+      "passes": false,
+      "per_class": {
+        "B": 0,
+        "Myeloid": 0,
+        "T": 0
+      },
+      "per_cytokine": {
+        "IFN-III/IL-29": 0,
+        "IFN-\u03b12": 0,
+        "IFN-\u03b2": 0,
+        "IFN-\u03b3": 0,
+        "IL-6": 0,
+        "TNF-\u03b1": 0
+      }
+    },
+    "32": {
+      "n_units": 18,
+      "paired_units": [
+        [
+          "IFN-\u03b12",
+          "B"
+        ],
+        [
+          "IFN-\u03b12",
+          "T"
+        ],
+        [
+          "IFN-\u03b12",
+          "Myeloid"
+        ],
+        [
+          "IFN-\u03b2",
+          "B"
+        ],
+        [
+          "IFN-\u03b2",
+          "T"
+        ],
+        [
+          "IFN-\u03b2",
+          "Myeloid"
+        ],
+        [
+          "IFN-\u03b3",
+          "B"
+        ],
+        [
+          "IFN-\u03b3",
+          "T"
+        ],
+        [
+          "IFN-\u03b3",
+          "Myeloid"
+        ],
+        [
+          "IFN-III/IL-29",
+          "B"
+        ],
+        [
+          "IFN-III/IL-29",
+          "T"
+        ],
+        [
+          "IFN-III/IL-29",
+          "Myeloid"
+        ],
+        [
+          "IL-6",
+          "B"
+        ],
+        [
+          "IL-6",
+          "T"
+        ],
+        [
+          "IL-6",
+          "Myeloid"
+        ],
+        [
+          "TNF-\u03b1",
+          "B"
+        ],
+        [
+          "TNF-\u03b1",
+          "T"
+        ],
+        [
+          "TNF-\u03b1",
+          "Myeloid"
+        ]
+      ],
+      "passes": true,
+      "per_class": {
+        "B": 6,
+        "Myeloid": 6,
+        "T": 6
+      },
+      "per_cytokine": {
+        "IFN-III/IL-29": 3,
+        "IFN-\u03b12": 3,
+        "IFN-\u03b2": 3,
+        "IFN-\u03b3": 3,
+        "IL-6": 3,
+        "TNF-\u03b1": 3
+      }
+    },
+    "36": {
+      "n_units": 18,
+      "paired_units": [
+        [
+          "IFN-\u03b12",
+          "B"
+        ],
+        [
+          "IFN-\u03b12",
+          "T"
+        ],
+        [
+          "IFN-\u03b12",
+          "Myeloid"
+        ],
+        [
+          "IFN-\u03b2",
+          "B"
+        ],
+        [
+          "IFN-\u03b2",
+          "T"
+        ],
+        [
+          "IFN-\u03b2",
+          "Myeloid"
+        ],
+        [
+          "IFN-\u03b3",
+          "B"
+        ],
+        [
+          "IFN-\u03b3",
+          "T"
+        ],
+        [
+          "IFN-\u03b3",
+          "Myeloid"
+        ],
+        [
+          "IFN-III/IL-29",
+          "B"
+        ],
+        [
+          "IFN-III/IL-29",
+          "T"
+        ],
+        [
+          "IFN-III/IL-29",
+          "Myeloid"
+        ],
+        [
+          "IL-6",
+          "B"
+        ],
+        [
+          "IL-6",
+          "T"
+        ],
+        [
+          "IL-6",
+          "Myeloid"
+        ],
+        [
+          "TNF-\u03b1",
+          "B"
+        ],
+        [
+          "TNF-\u03b1",
+          "T"
+        ],
+        [
+          "TNF-\u03b1",
+          "Myeloid"
+        ]
+      ],
+      "passes": true,
+      "per_class": {
+        "B": 6,
+        "Myeloid": 6,
+        "T": 6
+      },
+      "per_cytokine": {
+        "IFN-III/IL-29": 3,
+        "IFN-\u03b12": 3,
+        "IFN-\u03b2": 3,
+        "IFN-\u03b3": 3,
+        "IL-6": 3,
+        "TNF-\u03b1": 3
+      }
+    },
+    "40": {
+      "n_units": 17,
+      "paired_units": [
+        [
+          "IFN-\u03b12",
+          "B"
+        ],
+        [
+          "IFN-\u03b12",
+          "T"
+        ],
+        [
+          "IFN-\u03b12",
+          "Myeloid"
+        ],
+        [
+          "IFN-\u03b2",
+          "B"
+        ],
+        [
+          "IFN-\u03b2",
+          "T"
+        ],
+        [
+          "IFN-\u03b2",
+          "Myeloid"
+        ],
+        [
+          "IFN-\u03b3",
+          "B"
+        ],
+        [
+          "IFN-\u03b3",
+          "T"
+        ],
+        [
+          "IFN-\u03b3",
+          "Myeloid"
+        ],
+        [
+          "IFN-III/IL-29",
+          "B"
+        ],
+        [
+          "IFN-III/IL-29",
+          "T"
+        ],
+        [
+          "IFN-III/IL-29",
+          "Myeloid"
+        ],
+        [
+          "IL-6",
+          "T"
+        ],
+        [
+          "IL-6",
+          "Myeloid"
+        ],
+        [
+          "TNF-\u03b1",
+          "B"
+        ],
+        [
+          "TNF-\u03b1",
+          "T"
+        ],
+        [
+          "TNF-\u03b1",
+          "Myeloid"
+        ]
+      ],
+      "passes": true,
+      "per_class": {
+        "B": 5,
+        "Myeloid": 6,
+        "T": 6
+      },
+      "per_cytokine": {
+        "IFN-III/IL-29": 3,
+        "IFN-\u03b12": 3,
+        "IFN-\u03b2": 3,
+        "IFN-\u03b3": 3,
+        "IL-6": 2,
+        "TNF-\u03b1": 3
+      }
+    },
+    "48": {
+      "n_units": 14,
+      "paired_units": [
+        [
+          "IFN-\u03b12",
+          "B"
+        ],
+        [
+          "IFN-\u03b12",
+          "T"
+        ],
+        [
+          "IFN-\u03b12",
+          "Myeloid"
+        ],
+        [
+          "IFN-\u03b2",
+          "T"
+        ],
+        [
+          "IFN-\u03b2",
+          "Myeloid"
+        ],
+        [
+          "IFN-\u03b3",
+          "T"
+        ],
+        [
+          "IFN-\u03b3",
+          "Myeloid"
+        ],
+        [
+          "IFN-III/IL-29",
+          "B"
+        ],
+        [
+          "IFN-III/IL-29",
+          "T"
+        ],
+        [
+          "IFN-III/IL-29",
+          "Myeloid"
+        ],
+        [
+          "IL-6",
+          "T"
+        ],
+        [
+          "IL-6",
+          "Myeloid"
+        ],
+        [
+          "TNF-\u03b1",
+          "T"
+        ],
+        [
+          "TNF-\u03b1",
+          "Myeloid"
+        ]
+      ],
+      "passes": false,
+      "per_class": {
+        "B": 2,
+        "Myeloid": 6,
+        "T": 6
+      },
+      "per_cytokine": {
+        "IFN-III/IL-29": 3,
+        "IFN-\u03b12": 3,
+        "IFN-\u03b2": 2,
+        "IFN-\u03b3": 2,
+        "IL-6": 2,
+        "TNF-\u03b1": 2
+      }
+    },
+    "512": {
+      "n_units": 0,
+      "paired_units": [],
+      "passes": false,
+      "per_class": {
+        "B": 0,
+        "Myeloid": 0,
+        "T": 0
+      },
+      "per_cytokine": {
+        "IFN-III/IL-29": 0,
+        "IFN-\u03b12": 0,
+        "IFN-\u03b2": 0,
+        "IFN-\u03b3": 0,
+        "IL-6": 0,
+        "TNF-\u03b1": 0
+      }
+    },
+    "64": {
+      "n_units": 12,
+      "paired_units": [
+        [
+          "IFN-\u03b12",
+          "T"
+        ],
+        [
+          "IFN-\u03b12",
+          "Myeloid"
+        ],
+        [
+          "IFN-\u03b2",
+          "T"
+        ],
+        [
+          "IFN-\u03b2",
+          "Myeloid"
+        ],
+        [
+          "IFN-\u03b3",
+          "T"
+        ],
+        [
+          "IFN-\u03b3",
+          "Myeloid"
+        ],
+        [
+          "IFN-III/IL-29",
+          "T"
+        ],
+        [
+          "IFN-III/IL-29",
+          "Myeloid"
+        ],
+        [
+          "IL-6",
+          "T"
+        ],
+        [
+          "IL-6",
+          "Myeloid"
+        ],
+        [
+          "TNF-\u03b1",
+          "T"
+        ],
+        [
+          "TNF-\u03b1",
+          "Myeloid"
+        ]
+      ],
+      "passes": false,
+      "per_class": {
+        "B": 0,
+        "Myeloid": 6,
+        "T": 6
+      },
+      "per_cytokine": {
+        "IFN-III/IL-29": 2,
+        "IFN-\u03b12": 2,
+        "IFN-\u03b2": 2,
+        "IFN-\u03b3": 2,
+        "IL-6": 2,
+        "TNF-\u03b1": 2
+      }
+    }
+  }
+}

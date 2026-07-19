@@ -2,7 +2,7 @@
 name = "transport-steering"
 version = "0.1.0"
 requires-python = ">=3.10,<3.13"
-dependencies = ["anndata>=0.10", "h5py", "numpy", "pandas", "pyarrow", "scipy", "scikit-learn", "torch>=2.2", "PyYAML"]
+dependencies = ["anndata>=0.10", "arc-stack==0.1.3", "cell-eval", "h5py", "numpy", "pandas", "pyarrow", "scipy", "scikit-learn", "torch==2.5.1", "PyYAML"]
 
 [project.optional-dependencies]
 test = ["pytest>=8"]
@@ -19,3 +19,13 @@ packages = ["src/transport_study"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+[tool.uv.sources]
+arc-stack = { path = "vendor/stack", editable = true }
+cell-eval = { path = "vendor/cell-eval", editable = true }   # pinned v0.6.6; contract §11 primary evaluator
+torch = { index = "pytorch-cu121" }
+
+[[tool.uv.index]]
+name = "pytorch-cu121"
+url = "https://download.pytorch.org/whl/cu121"
+explicit = true

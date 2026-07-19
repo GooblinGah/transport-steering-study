@@ -1,88 +1,106 @@
 # Transport Steering Study
 
-This project implements the revised Dong test.
+Research code for comparing:
 
-The project has two result tables.
+- transport steering in Stack latent space versus Stack in-context learning;
+- Stack-space transport versus the same operator in matched PCA space; and
+- global versus initial-state-conditioned transport across held-out populations.
 
-- The end-to-end table compares complete methods.
-- The representation-controlled table compares Stack and PCA with matched decoders.
+The study design is in [`docs/DONG_CONTRACT.md`](docs/DONG_CONTRACT.md).
 
-The project keeps treated target expression sealed during all fit and selection steps.
-The project records hashes for manifests, windows, predictions, decoders, gene panels, and metrics.
-
-## Terms
-
-- **Sealed data** is data that a fit or selection step cannot use.
-- **Gate** is the set of requirements that controls the next study stage.
-- **Expected counts** are deterministic mean counts from a prediction model.
-- **Technical resample** is a repeated calculation with a new cell sample or seed.
-
-## Install the project
-
-Activate the Python environment.
+## Environment
 
 ```bash
-source /venv/main/bin/activate
+git submodule update --init --recursive
+uv sync --locked --python 3.10 --extra test
+source .venv/bin/activate
 ```
 
-Install the project and the test packages.
+The lock installs the pinned Stack submodule and the tested PyTorch 2.5.1 CUDA
+12.1 build.
+
+## Local inputs
+
+The current checkout already contains these ignored local assets:
+
+```text
+data/Integrated_raw.h5ad
+data/Integrated_.h5ad
+artifacts/models/Stack-Large-Aligned/bc_large_aligned.ckpt
+artifacts/models/Stack-Large-Aligned/basecount_1000per_15000max.pkl
+```
+
+The Dong files come from <https://zenodo.org/records/8180343>. The Stack files
+come from revision `b09f085dac03d170b078a5c72f550ae93686e544` of
+<https://huggingface.co/arcinstitute/Stack-Large-Aligned>.
+
+## Prepare Dong metadata
+
+The deposited raw file contains counts but not cell-type annotations. The
+annotated file has the labels but transformed expression. Join only their
+metadata while retaining the raw row positions and gene order:
 
 ```bash
-uv pip install -e '.[test]'
+transport-study prepare-dong-metadata \
+  --raw-adata data/Integrated_raw.h5ad \
+  --annotated-adata data/Integrated_.h5ad \
+  --out artifacts/dong_metadata
 ```
 
-## Check the storage
-
-Run the storage check.
-
-```bash
-transport-study preflight
-```
-
-For a production run, use a persistent volume with 0.5 TB to 1 TB of space.
-The current `/workspace` directory is not persistent.
-
-## Make the Dong manifests
-
-Use the deposited raw-count file.
+Then construct the experimental cell manifests:
 
 ```bash
 transport-study build-manifests \
-  --adata data/Integrated_raw.h5ad \
-  --celltype-col cell_type0528 \
+  --metadata artifacts/dong_metadata \
   --out artifacts/manifests
 ```
 
-The command audits cell counts before it selects a role size.
-The command tests role sizes of 512, 256, and 128 cells.
-The command selects one role size for all eligible tasks.
+The contract preregisters role sizes 512, 256, and 128; none is feasible on the
+deposited Dong data (too few B and Dendritic cells). Per the recorded amendment in
+[`docs/AMENDMENT_ROLE_SIZE.md`](docs/AMENDMENT_ROLE_SIZE.md), the tier list is
+extended and the unchanged "largest passing tier" rule now selects role size **40**
+(17 of 18 two-donor units eligible, every class and cytokine covered). The command
+writes the cell-count audit and 700 eligible fine-matched manifests, exiting 0.
 
-The command stops if no role size meets the coverage requirements.
-Do not add a role size of 64 cells without a recorded study amendment.
-
-## Run the tests
+## Tests
 
 ```bash
 pytest -q
 ```
 
-## Apply the gate
+## Run the study
 
-Use the locked metric records.
+The end-to-end driver (`src/transport_study/run.py`) loads Stack, extracts post-L9
+embeddings via the parity-verified manual path, fits the transport maps, runs
+deterministic in-context generation, decodes (native NB head and matched ridge),
+applies the anchored synthetic-control correction, and writes the metric table:
 
 ```bash
-transport-study gate \
-  --metrics artifacts/metrics/locked.parquet \
-  --out artifacts/gate/dong.json
+transport-study run \
+  --manifests artifacts/manifests --metadata artifacts/dong_metadata \
+  --raw-adata data/Integrated_raw.h5ad \
+  --ckpt artifacts/models/Stack-Large-Aligned/bc_large_aligned.ckpt \
+  --genes artifacts/models/Stack-Large-Aligned/basecount_1000per_15000max.pkl \
+  --out artifacts/metrics/dong_metrics.parquet
+
+transport-study gate --metrics artifacts/metrics/dong_metrics.parquet \
+  --out artifacts/metrics/GATE.json
 ```
 
-Do not start the SciPlex3 or STATE stage unless the output contains `"passed": true`.
+All four methods run in Stack's 15012-gene space. Steering is applied at the final
+Stack layer (after block 9): the NB head is per-cell, so transporting the post-L9
+embedding and decoding it equals a layer-9 intervention (verified to 0.0 against the
+native forward). `--limit N` runs the first N eligible manifests for a pilot.
 
-## Pinned revisions
+Evaluation uses the pinned **cell-eval `v0.6.6`** (`vendor/cell-eval`): `pearson_delta`
+for delta-Pearson and `de_spearman_lfc_sig` for DE-LFC correlation, with the DE gene
+sets from Arc's `pdex` (Wilcoxon). Energy distance uses cell-eval's E-distance formula
+in the fixed 50-component control-only evaluator space. Predictions are frozen (anchored
+synthetic-control corrected) before cell-eval sees any Y1 expression.
+
+Pinned revisions:
 
 - Stack code: `cacc2e4b09435c3e536d46237d10b50f222dd144`
-- Stack-Large-Aligned: `b09f085dac03d170b078a5c72f550ae93686e544`
-- Primary cell-eval version: `v0.6.6`
-- Secondary cell-eval version: `v0.8.1`
-
-Read [the Dong contract](docs/DONG_CONTRACT.md) before you run a model.
+- Stack model: `b09f085dac03d170b078a5c72f550ae93686e544`
+- cell-eval primary: `v0.6.6`
+- cell-eval secondary: `v0.8.1`
