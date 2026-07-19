@@ -18,11 +18,16 @@ from .decoders import fit_matched_decoders
 from .output_scale import library_sizes, normalize_log1p, prepare_for_evaluation, synthetic_control_correct
 from .evaluation import energy_distance, FixedEvaluatorSpace
 from .panels import fit_control_only_panel
-from .stack_context import build_source_fit_windows, build_query_windows, manual_no_mask_forward
-from .contracts import canonical_hash
+from .stack_context import build_source_fit_windows, build_query_windows, build_icl_windows, manual_no_mask_forward
+from .contracts import canonical_hash, validate_manifest_payload
 
 MMD_CONFIG = dict(rank=8, alpha=1.0, bandwidth_multiplier=1.0, movement=1e-2, steps=300, seed=0)
-TRANSPORT_HASH = canonical_hash({"operator": "low_rank_mmd", **MMD_CONFIG})
+MMD_GRID = {
+    "rank": {4, 8, 16, 32},
+    "alpha": {0.0, 0.5, 0.75, 1.0, 1.25, 1.5},
+    "bandwidth_multiplier": {0.5, 1.0, 2.0},
+    "movement": {0.001, 0.01, 0.1},
+}
 PANEL_GENES = 2000
 ICL_STEPS = 5
 
@@ -53,12 +58,15 @@ class GeneAligner:
         return out
 
 
-def _forward(model, counts_2d, device, intervention_layer=None, intervention=None):
+def _forward(model, counts_2d, device, intervention_layer=None, intervention=None,
+             query_position_start=332, actual_query_start=333):
     import torch
     t = torch.as_tensor(counts_2d, dtype=torch.float32, device=device).unsqueeze(0)
     with torch.no_grad():
         return manual_no_mask_forward(model, t, intervention_layer=intervention_layer,
-                                      intervention=intervention, return_activations=intervention_layer is None)
+                                      intervention=intervention, return_activations=intervention_layer is None,
+                                      query_position_start=query_position_start,
+                                      actual_query_start=actual_query_start)
 
 
 def _focal_mean(cell_ids, values, start=333):
@@ -92,15 +100,45 @@ def icl_predict(model, context_ids, context_counts, query_ids, query_counts, dev
     for `steps` iterations, using `context` as the source condition."""
     ctx = {c: context_counts[i] for i, c in enumerate(context_ids)}
     cur = {c: query_counts[i].astype(np.float32) for i, c in enumerate(query_ids)}
-    windows = build_query_windows(context_ids, query_ids, seed=seed)
-    for _ in range(steps):
+    is_masked = {c: True for c in query_ids}
+    if steps != ICL_STEPS:
+        raise ValueError(f"primary ICL requires exactly {ICL_STEPS} steps")
+    for step in range(1, steps + 1):
+        windows = build_icl_windows(context_ids, query_ids, step=step, seed=seed)
         acc = defaultdict(list)
+        logit_acc = defaultdict(list)
         for w in windows:
             cnt = np.stack([ctx[c] if c in ctx else cur[c] for c in w.cell_ids])
-            nb = _forward(model, cnt, device)["nb_mean"][0].cpu().numpy()
-            for c, v in _focal_mean(w.cell_ids, nb).items():
+            result = _forward(model, cnt, device,
+                              query_position_start=w.query_position_start,
+                              actual_query_start=w.actual_focal_or_query_start)
+            nb = result["nb_mean"][0].cpu().numpy()
+            for c, v in _focal_mean(w.cell_ids, nb, start=w.actual_focal_or_query_start).items():
                 acc[c].append(v)
-        cur = {c: np.mean(acc[c], 0) for c in query_ids}
+            if "query_logits" in result:
+                tail_ids = w.cell_ids[w.actual_focal_or_query_start:]
+                for c, values in _focal_mean(tail_ids, result["query_logits"][0].cpu().numpy(), start=0).items():
+                    logit_acc[c].append(float(values))
+        proposed = {c: np.mean(acc[c], 0) for c in query_ids}
+        if logit_acc:
+            logits = np.array([np.mean(logit_acc[c]) for c in query_ids])
+            masked = np.array([is_masked[c] for c in query_ids], dtype=bool)
+            keep = ~masked
+            mask_ratio = float(1.0 - step / steps)
+            if masked.any():
+                unmask_rate = (masked.mean() - mask_ratio) / masked.mean()
+                unmask_rate = float(np.clip(unmask_rate, 0.0, 1.0))
+                threshold = np.quantile(logits[masked], unmask_rate)
+                keep[masked] = logits[masked] > threshold
+            # Match Stack MDM semantics: kept cells retain their previous value;
+            # all other cells receive this step's deterministic NB mean.
+            cur = {c: cur[c] if keep[i] else proposed[c] for i, c in enumerate(query_ids)}
+            for i, c in enumerate(query_ids):
+                is_masked[c] = bool((is_masked[c] and keep[i]) or logits[i] > 0)
+        else:
+            # Models without the optional MDM classifier can still exercise the
+            # deterministic schedule, but cannot perform classifier-based unmasking.
+            cur = proposed
     return np.stack([cur[c] for c in query_ids])
 
 
@@ -147,7 +185,8 @@ def evaluate_task(preds, q0_counts, y1_counts, panel_idx, evaluator, outdir, num
 
 
 # --- per-manifest driver ----------------------------------------------------
-def run_manifest(model, aligner, counts_lookup, fine_lookup, manifest, device, seed=0, outdir="/tmp/ce", num_threads=16):
+def run_manifest(model, aligner, counts_lookup, fine_lookup, manifest, device, seed=0, outdir="/tmp/ce", num_threads=16,
+                 mmd_config=None):
     """counts_lookup(cell_id)->raw Dong dense row; fine_lookup(cell_id)->fine label."""
     roles = {r: list(manifest[r]) for r in ("p0", "p1", "q0", "y1")}
     ids = roles["p0"] + roles["p1"] + roles["q0"] + roles["y1"]
@@ -169,14 +208,16 @@ def run_manifest(model, aligner, counts_lookup, fine_lookup, manifest, device, s
     # Transport maps (identical config for Stack and PCA representations).
     import torch
     to_dev = lambda x: torch.as_tensor(x, dtype=torch.float32, device=device)
-    mmd_stack = LowRankMMD(**MMD_CONFIG).fit(to_dev(emb_p0), to_dev(emb_p1))
+    selected_mmd = dict(MMD_CONFIG if mmd_config is None else mmd_config)
+    transport_hash = canonical_hash({"operator": "low_rank_mmd", **selected_mmd})
+    mmd_stack = LowRankMMD(**selected_mmd).fit(to_dev(emb_p0), to_dev(emb_p1))
     tq_stack = mmd_stack.transform(emb_q0)
 
     from sklearn.decomposition import PCA
     train_log = normalize_log1p(np.vstack([p0c, p1c, q0c]))   # PCA basis fit on P0,P1,Q0 only (contract §3.2)
     Z = PCA(min(50, len(train_log) - 1, aligner.n), random_state=0).fit(train_log)
     zp0, zp1, zq0 = (Z.transform(normalize_log1p(x)) for x in (p0c, p1c, q0c))
-    mmd_pca = LowRankMMD(**MMD_CONFIG).fit(zp0, zp1)
+    mmd_pca = LowRankMMD(**selected_mmd).fit(zp0, zp1)
     tq_pca = mmd_pca.transform(zq0)
 
     # Matched ridge decoders (one expression basis + one cell order, matched hashes).
@@ -189,7 +230,7 @@ def run_manifest(model, aligner, counts_lookup, fine_lookup, manifest, device, s
     panel = fit_control_only_panel(np.vstack([p0c, q0c]), ctrl_ids,
                                    [f"g{i}" for i in range(aligner.n)], n_genes=PANEL_GENES, sealed_y1=roles["y1"])
     panel_idx = np.array([int(g[1:]) for g in panel.genes])
-    evaluator = FixedEvaluatorSpace(50).fit(prepare_for_evaluation(np.vstack([p0c, p1c, q0c]))[:, panel_idx],
+    evaluator = FixedEvaluatorSpace(50).fit(prepare_for_evaluation(np.vstack([p0c, q0c]))[:, panel_idx],
                                             gene_ids=panel.genes)
 
     # Predictions (anchored synthetic-control correction, contract §4).
@@ -221,17 +262,41 @@ def run_manifest(model, aligner, counts_lookup, fine_lookup, manifest, device, s
                     evaluator_hash=evaluator.evaluator_hash, deg_count=deg_count, deg_set_hash=deg_hash,
                     decoder_train_ids_hash=stack_dec.decoder_train_ids_hash_ if rep else "",
                     expression_basis_hash=stack_dec.expression_basis_hash_ if rep else "",
-                    transport_config_hash=TRANSPORT_HASH if rep else "")
+                    transport_config_hash=transport_hash if rep else "")
         for metric in ("delta_pearson", "de_lfc_spearman", "energy_distance"):
             rows.append(base | {"metric": metric, "value": vals[metric]})
     return rows
 
 
-def run_study(manifest_dir, metadata_dir, ckpt, genes_pkl, raw_adata, out, device="cuda", limit=None, num_threads=16):
+def _load_crossfit_transport_configs(path):
+    if path is None:
+        raise ValueError(
+            "primary execution requires --transport-configs with independently "
+            "donor-cross-fit-selected settings; the selection objective is not specified "
+            "by the contract, so fixed defaults cannot be silently substituted"
+        )
+    body = json.loads(Path(path).read_text())
+    expected = {"H2D2": "H3D2", "H3D2": "H2D2"}
+    configs = {}
+    for donor, selection_donor in expected.items():
+        record = body.get(donor, {})
+        if record.get("selected_on_donor") != selection_donor:
+            raise ValueError(f"{donor} configuration must be selected on {selection_donor}")
+        config = {key: record[key] for key in MMD_GRID}
+        for key, allowed in MMD_GRID.items():
+            if config[key] not in allowed:
+                raise ValueError(f"{donor} {key}={config[key]!r} is outside the registered grid")
+        configs[donor] = config | {"steps": 300, "seed": 0}
+    return configs
+
+
+def run_study(manifest_dir, metadata_dir, ckpt, genes_pkl, raw_adata, out, device="cuda", limit=None, num_threads=16,
+              transport_configs=None):
     import anndata as ad, logging, os
     os.environ.setdefault("TQDM_DISABLE", "1")          # silence pdex/cell-eval progress bars
     logging.disable(logging.INFO)
     manifest_dir, out = Path(manifest_dir), Path(out)
+    donor_mmd = _load_crossfit_transport_configs(transport_configs)
     ce_out = str(out.parent / "cell_eval_tmp")
     model, stack_genes = load_runtime(ckpt, genes_pkl, device)
     obs = pd.read_parquet(Path(metadata_dir) / "obs.parquet")
@@ -252,8 +317,10 @@ def run_study(manifest_dir, metadata_dir, ckpt, genes_pkl, raw_adata, out, devic
     all_rows = []
     for i, f in enumerate(files):
         m = json.loads(f.read_text())
+        validated = validate_manifest_payload(m)
         all_rows += run_manifest(model, aligner, counts_lookup, lambda c: fine_map[c], m, device,
-                                 outdir=ce_out, num_threads=num_threads)
+                                 seed=validated.seed, outdir=ce_out, num_threads=num_threads,
+                                 mmd_config=donor_mmd[validated.donor])
         print(f"[{i+1}/{len(files)}] {m['task_id']}", flush=True)
         if (i + 1) % 25 == 0:  # checkpoint for a long run
             pd.DataFrame(all_rows).to_parquet(out)

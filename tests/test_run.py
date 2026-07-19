@@ -2,7 +2,7 @@ import numpy as np
 import torch
 import pytest
 
-from transport_study.run import GeneAligner, _focal_mean, evaluate_task, run_manifest
+from transport_study.run import GeneAligner, _focal_mean, _load_crossfit_transport_configs, evaluate_task, run_manifest
 from transport_study.evaluation import FixedEvaluatorSpace
 from transport_study.contracts import TaskManifest
 from transport_study.output_scale import prepare_for_evaluation
@@ -22,6 +22,23 @@ def test_focal_mean_averages_per_barcode_over_focal_rows():
     assert fm["a"][0] == pytest.approx((333 + 335) / 2)   # rows 333 and 335
     assert fm["b"][0] == pytest.approx(334)
     assert "ctx0" not in fm                                 # context rows excluded
+
+
+def test_crossfit_transport_configs_are_opposite_donor_and_on_grid(tmp_path):
+    path = tmp_path / "selected.json"
+    valid = {
+        "H2D2": {"selected_on_donor": "H3D2", "rank": 8, "alpha": 1.0,
+                  "bandwidth_multiplier": 1.0, "movement": 0.01},
+        "H3D2": {"selected_on_donor": "H2D2", "rank": 4, "alpha": 0.5,
+                  "bandwidth_multiplier": 2.0, "movement": 0.001},
+    }
+    import json
+    path.write_text(json.dumps(valid))
+    assert _load_crossfit_transport_configs(path)["H2D2"]["rank"] == 8
+    valid["H2D2"]["rank"] = 7
+    path.write_text(json.dumps(valid))
+    with pytest.raises(ValueError, match="outside the registered grid"):
+        _load_crossfit_transport_configs(path)
 
 
 def test_evaluate_task_uses_cell_eval_and_rewards_correct_shift(tmp_path):

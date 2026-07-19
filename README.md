@@ -81,11 +81,27 @@ transport-study run \
   --raw-adata data/Integrated_raw.h5ad \
   --ckpt artifacts/models/Stack-Large-Aligned/bc_large_aligned.ckpt \
   --genes artifacts/models/Stack-Large-Aligned/basecount_1000per_15000max.pkl \
+  --transport-configs artifacts/crossfit/selected_mmd.json \
   --out artifacts/metrics/dong_metrics.parquet
 
 transport-study gate --metrics artifacts/metrics/dong_metrics.parquet \
   --out artifacts/metrics/GATE.json
 ```
+
+`selected_mmd.json` must contain independently selected settings for both target
+donors. The selection objective must be decided and recorded without using the
+sealed target donor. The runner validates that every value belongs to the registered
+grid. This example illustrates the schema only; its numbers are not selected results:
+
+```json
+{
+  "H2D2": {"selected_on_donor": "H3D2", "rank": 8, "alpha": 1.0, "bandwidth_multiplier": 1.0, "movement": 0.01},
+  "H3D2": {"selected_on_donor": "H2D2", "rank": 8, "alpha": 1.0, "bandwidth_multiplier": 1.0, "movement": 0.01}
+}
+```
+
+The runner intentionally refuses to substitute fixed defaults because that would
+not constitute the contract's donor-cross-fit primary analysis.
 
 All four methods run in Stack's 15012-gene space. Steering is applied at the final
 Stack layer (after block 9): the NB head is per-cell, so transporting the post-L9

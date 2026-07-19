@@ -7,7 +7,7 @@ def main(argv=None):
     d=sub.add_parser("prepare-dong-metadata"); d.add_argument("--raw-adata",type=Path,required=True); d.add_argument("--annotated-adata",type=Path,required=True); d.add_argument("--out",type=Path,required=True)
     b=sub.add_parser("build-manifests"); source=b.add_mutually_exclusive_group(required=True); source.add_argument("--adata",type=Path); source.add_argument("--metadata",type=Path); b.add_argument("--out",type=Path,required=True); b.add_argument("--donor-col",default="sample"); b.add_argument("--condition-col",default="cytokine"); b.add_argument("--celltype-col",default="cell_type0528"); b.add_argument("--resamples",type=int,default=20)
     g=sub.add_parser("gate"); g.add_argument("--metrics",type=Path,required=True); g.add_argument("--out",type=Path,required=True)
-    r=sub.add_parser("run"); r.add_argument("--manifests",type=Path,required=True); r.add_argument("--metadata",type=Path,required=True); r.add_argument("--raw-adata",type=Path,required=True); r.add_argument("--ckpt",type=Path,required=True); r.add_argument("--genes",type=Path,required=True); r.add_argument("--out",type=Path,required=True); r.add_argument("--device",default="cuda"); r.add_argument("--limit",type=int)
+    r=sub.add_parser("run"); r.add_argument("--manifests",type=Path,required=True); r.add_argument("--metadata",type=Path,required=True); r.add_argument("--raw-adata",type=Path,required=True); r.add_argument("--ckpt",type=Path,required=True); r.add_argument("--genes",type=Path,required=True); r.add_argument("--out",type=Path,required=True); r.add_argument("--device",default="cuda"); r.add_argument("--limit",type=int); r.add_argument("--transport-configs",type=Path,help="JSON containing donor-cross-fit-selected MMD settings")
     args=p.parse_args(argv)
     if args.cmd=="prepare-dong-metadata":
         from .dong_schema import prepare_dong_metadata, write_dong_metadata
@@ -28,6 +28,6 @@ def main(argv=None):
         frame=pd.read_parquet(args.metrics) if args.metrics.suffix==".parquet" else pd.read_csv(args.metrics); result=gate(frame); args.out.parent.mkdir(parents=True,exist_ok=True); args.out.write_text(json.dumps(result,indent=2)+"\n"); print(json.dumps(result,indent=2)); return 0 if result["passed"] else 3
     if args.cmd=="run":
         from .run import run_study
-        run_study(args.manifests,args.metadata,args.ckpt,args.genes,args.raw_adata,args.out,device=args.device,limit=args.limit); return 0
+        run_study(args.manifests,args.metadata,args.ckpt,args.genes,args.raw_adata,args.out,device=args.device,limit=args.limit,transport_configs=args.transport_configs); return 0
 
 if __name__=="__main__": raise SystemExit(main())

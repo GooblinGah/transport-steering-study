@@ -82,6 +82,31 @@ def build_query_windows(p0_context_ids,q0_ids,*,seed,sealed_y1=()):
     return windows
 
 
+def build_icl_windows(context_ids, query_ids, *, step, seed, sealed_y1=()):
+    """Build one step of the pinned five-step Stack generation schedule."""
+    schedule = official_icl_schedule()
+    if not 1 <= step <= len(schedule):
+        raise ValueError(f"ICL step must be in 1..{len(schedule)}")
+    spec = schedule[step - 1]
+    # The pinned implementation uses independent source permutations at each step.
+    rng = np.random.default_rng(seed + spec["source_permutation_seed"])
+    context = np.asarray(context_ids, dtype=object).copy()
+    query = np.asarray(query_ids, dtype=object).copy()
+    rng.shuffle(context)
+    rng.shuffle(query)
+    source_rows, query_rows = spec["source_rows"], spec["query_rows"]
+    windows = []
+    for index, start in enumerate(range(0, len(query), query_rows)):
+        ids = _cycle(context, index * source_rows, source_rows) + _cycle(query, start, query_rows)
+        window = StackWindow(
+            "icl_generation", "query", ids, source_rows, query_rows,
+            spec["query_position_start"], source_rows, seed, index,
+        )
+        window.validate(sealed_y1)
+        windows.append(window)
+    return windows
+
+
 def manual_no_mask_forward(model,raw_counts,*,query_position_start=332,intervention_layer=None,intervention:Callable|None=None,actual_query_start=333,return_activations=False):
     """Run Stack without the random-mask method. Use layer 0 for tokens and layers 1 through 9 for blocks."""
     import torch
@@ -108,5 +133,10 @@ def manual_no_mask_forward(model,raw_counts,*,query_position_start=332,intervent
     final=capture(tokens)
     nb_mean,nb_dispersion,px_scale=model._compute_nb_parameters(final,library)
     result={"nb_mean":nb_mean,"nb_dispersion":nb_dispersion,"px_scale":px_scale,"library_size":library}
+    if getattr(model, "cls", None) is not None and actual_query_start < WINDOW_SIZE:
+        context_mean = final[:, :actual_query_start].mean(dim=1, keepdim=True)
+        query = final[:, actual_query_start:]
+        context = context_mean.expand(-1, query.shape[1], -1)
+        result["query_logits"] = model.cls(torch.cat([context, query], dim=-1)).squeeze(-1)
     if return_activations:result["activations"]=activations
     return result

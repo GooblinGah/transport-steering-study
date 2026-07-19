@@ -11,7 +11,7 @@ from transport_study.output_scale import (
     library_sizes, log1p_to_expected_counts, normalize_log1p,
     prepare_for_evaluation, synthetic_control_correct,
 )
-from transport_study.stack_context import build_query_windows, build_source_fit_windows, manual_no_mask_forward, official_icl_schedule
+from transport_study.stack_context import build_query_windows, build_source_fit_windows, build_icl_windows, manual_no_mask_forward, official_icl_schedule
 from transport_study.panels import fit_control_only_panel
 
 DONORS=("H2D2","H3D2")
@@ -147,6 +147,16 @@ def test_stack_window_contract_and_official_schedule():
 def test_query_window_seed_changes_query_order():
     context=[f"p{i}" for i in range(333)];query=[f"q{i}" for i in range(256)]
     assert build_query_windows(context,query,seed=1)[0].cell_ids[333:] != build_query_windows(context,query,seed=2)[0].cell_ids[333:]
+
+
+def test_icl_windows_follow_every_registered_step():
+    context=[f"p{i}" for i in range(400)];query=[f"q{i}" for i in range(300)]
+    schedule=official_icl_schedule()
+    for step, spec in enumerate(schedule, 1):
+        windows=build_icl_windows(context,query,step=step,seed=10,sealed_y1=["sealed"])
+        assert all(w.source_rows==spec["source_rows"] for w in windows)
+        assert all(w.focal_or_query_rows==spec["query_rows"] for w in windows)
+        assert all(w.query_position_start==spec["query_position_start"] for w in windows)
 
 
 def test_manual_stack_forward_intervenes_on_query_only():
